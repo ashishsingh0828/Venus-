@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
-import "./faqSection.css";
+import "./FaqSection.css";
 
 
 const FAQS = [
