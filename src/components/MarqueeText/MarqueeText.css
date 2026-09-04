@@ -1,0 +1,120 @@
+.marquee-wrapper-modern {
+  width: 100%;
+  overflow: hidden;
+  background: var(--bg-surface, #ffffff);
+  border-top: 1px solid var(--border-color, #e2e8f0);
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+  padding: 100px 0;
+  display: flex;
+  user-select: none;
+  position: relative;
+}
+
+.marquee-wrapper-modern::before,
+.marquee-wrapper-modern::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 140px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-wrapper-modern::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-surface, #ffffff), transparent);
+}
+
+.marquee-wrapper-modern::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-surface, #ffffff), transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: scrollInfinite 48s linear infinite;
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.marquee-node {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding-right: 40px;
+}
+
+.marquee-text-outline {
+ font-weight: 500;
+    font-size: 128px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    line-height: 110px;
+    color: rgb(207, 207, 207);
+  -webkit-text-stroke: 0;
+  white-space: nowrap;
+}
+
+.marquee-separator {
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes scrollInfinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 992px) {
+  .marquee-wrapper-modern {
+    padding: 70px 0;
+  }
+
+  .marquee-text-outline {
+    font-size: 56px;
+  }
+
+  .marquee-node {
+    gap: 28px;
+    padding-right: 28px;
+  }
+
+  .marquee-wrapper-modern::before,
+  .marquee-wrapper-modern::after {
+    width: 80px;
+  }
+}
+
+@media (max-width: 600px) {
+  .marquee-wrapper-modern {
+    padding: 50px 0;
+  }
+
+  .marquee-text-outline {
+    font-size: 38px;
+  }
+
+  .marquee-node {
+    gap: 20px;
+    padding-right: 20px;
+  }
+
+  .marquee-wrapper-modern::before,
+  .marquee-wrapper-modern::after {
+    width: 40px;
+  }
+}

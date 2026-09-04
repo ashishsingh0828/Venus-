@@ -1,0 +1,217 @@
+:root {
+  --florem-accent: #c7844f;
+  --florem-dark: #1b1f24;
+  --florem-gray-text: #71717a;
+  --florem-stroke-default: #d9d4cc;
+  --florem-bg-card: #ffffff;
+}
+
+.service-section {
+  padding: 60px 20px;
+  background-color: #fcfbf9;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ---------------- Card Base ---------------- */
+.servicess-card {
+  position: relative;
+  background-color: var(--florem-bg-card);
+  min-height: 340px; 
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Subtle, gentle lift */
+.servicess-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* ---------------- Overlay: Slow, smooth downward slide ---------------- */
+.servicess-card__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transform: translateY(-100%);
+  opacity: 0;
+  /* Slower, graceful glide down */
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s ease;
+  z-index: 1;
+}
+
+.servicess-card__overlay {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(27, 31, 36, 0.88) 0%,
+    rgba(18, 20, 24, 0.94) 100%
+  );
+}
+
+.servicess-card:hover .servicess-card__bg {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ---------------- Card Content ---------------- */
+.servicess-card__content {
+  position: relative;
+  z-index: 2;
+  padding: 30px 28px; /* Tighter padding */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Top Area */
+.servicess-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+/* Number: Hollow inside, ONLY stroke/outline changes color */
+.servicess-card__number {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1;
+  color: transparent !important; /* Stays hollow */
+  -webkit-text-fill-color: transparent !important;
+  -webkit-text-stroke: 1.5px var(--florem-stroke-default);
+  transition: -webkit-text-stroke 0.5s ease;
+}
+
+.servicess-card:hover .servicess-card__number {
+  -webkit-text-stroke: 1.5px var(--florem-accent); /* Only outline changes color */
+}
+
+.servicess-card__dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.servicess-card__dot .dot-inner {
+  width: 5px;
+  height: 5px;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+.servicess-card:hover .servicess-card__dot {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Title */
+.servicess-card__title {
+  margin: 0 0 12px 0;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.servicess-card__title a {
+  text-decoration: none;
+  color: var(--florem-dark);
+  transition: color 0.4s ease;
+}
+
+.servicess-card:hover .servicess-card__title a {
+  color: #ffffff;
+}
+
+/* Divider Line */
+.servicess-card__divider {
+  width: 100%;
+  height: 1px;
+  background-color: #f1ede8;
+  margin-bottom: 14px;
+  transition: background-color 0.4s ease;
+}
+
+.servicess-card:hover .servicess-card__divider {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Description Text */
+.servicess-card__text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--florem-gray-text);
+  margin: 0 0 20px 0;
+  transition: color 0.4s ease;
+}
+
+.servicess-card:hover .servicess-card__text {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* Icon */
+.servicess-card__icon {
+  margin-top: auto;
+  color: var(--florem-accent);
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.4s ease, transform 0.4s ease;
+}
+
+.servicess-card:hover .servicess-card__icon {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ---------------- Responsive Breakpoints ---------------- */
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .service-section {
+    padding: 40px 16px;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .servicess-card {
+    min-height: auto;
+  }
+  .servicess-card__content {
+    padding: 24px 20px;
+  }
+}

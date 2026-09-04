@@ -1,0 +1,267 @@
+/* -------------------------------------------------------------------------
+   FAQ Section — "What Are The Most Common Questions?"
+   Self-contained tokens; falls back to sensible defaults if the host
+   page doesn't define the theme variables below.
+   ---------------------------------------------------------------------- */
+
+.faq-section {
+  --_primary: var(--primary, #e0942f);
+  --_primary-dark: var(--primary-dark, #c67e1f);
+  --_secondary: var(--secondary, #1c1a17);
+  --_surface: var(--bg-surface, #ffffff);
+  --_panel: var(--bg-panel, #f6f1e7);
+  --_panel-active: var(--bg-panel-active, #fbf8f2);
+  --_text-muted: var(--text-muted, #8a8072);
+  --_border: var(--border-soft, #e9e1d2);
+  --_font-heading: var(--font-heading, "Fraunces", Georgia, serif);
+  --_font-body: var(--font-body, "Inter", system-ui, sans-serif);
+
+  background: var(--_surface);
+  padding: clamp(48px, 8vw, 96px) 0 clamp(64px, 9vw, 112px);
+  font-family: var(--_font-body);
+  color: var(--_secondary);
+}
+
+.faq-section__inner {
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 24px);
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: start;
+}
+
+/* ---------- left column: intro ----------------------------------------- */
+
+.faq-section__intro {
+  animation: faq-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+@keyframes faq-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faq-section__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--_primary);
+  margin-bottom: 18px;
+}
+
+.faq-section__eyebrow-mark {
+  width: 7px;
+  height: 7px;
+  background: var(--_secondary);
+  flex-shrink: 0;
+}
+
+.faq-section__heading {
+  font-family: var(--_font-heading);
+  font-weight: 600;
+  font-size: clamp(30px, 3.6vw, 44px);
+  line-height: 1.16;
+  letter-spacing: -0.01em;
+  margin: 0 0 20px;
+  max-width: 14ch;
+}
+
+.faq-section__lede {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--_text-muted);
+  max-width: 42ch;
+  margin: 0 0 36px;
+}
+
+/* ---------- stat card ---------------------------------------------------- */
+
+.faq-stat-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: var(--_panel);
+  border-radius: 12px;
+  padding: clamp(22px, 2.6vw, 30px);
+}
+
+.faq-stat-card__icon {
+  flex-shrink: 0;
+  color: var(--_primary);
+  display: inline-flex;
+}
+
+.faq-stat-card__body {
+  min-width: 0;
+}
+
+.faq-stat-card__figure {
+  font-family: var(--_font-heading);
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--_secondary);
+  margin: 4px 0 10px;
+}
+
+.faq-stat-card__number {
+  font-weight: 700;
+  color: var(--_primary);
+}
+
+.faq-stat-card__text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--_text-muted);
+  margin: 0;
+}
+
+/* ---------- right column: accordion -------------------------------------- */
+
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.faq-item {
+  background: var(--_panel);
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.faq-item--open {
+  background: var(--_panel-active);
+  box-shadow: 0 18px 40px -24px rgba(28, 26, 23, 0.22);
+}
+
+.faq-item__header {
+  margin: 0;
+}
+
+.faq-item__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  padding: 22px 26px;
+  font-family: var(--_font-heading);
+  font-size: clamp(15px, 1.5vw, 17px);
+  font-weight: 500;
+  color: var(--_secondary);
+}
+
+.faq-item__trigger:focus-visible {
+  outline: 2px solid var(--_primary);
+  outline-offset: -2px;
+  border-radius: 8px;
+}
+
+.faq-item__question {
+  flex: 1;
+  min-width: 0;
+}
+
+.faq-item__icon {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--_primary);
+  color: #fff;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.faq-item--open .faq-item__icon {
+  background: var(--_secondary);
+  transform: rotate(180deg);
+}
+
+/* Animated collapse using a grid-rows trick: no max-height guessing,
+   no layout jump, respects content of any length. */
+.faq-item__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.faq-item--open .faq-item__panel {
+  grid-template-rows: 1fr;
+}
+
+.faq-item__panel-inner {
+  overflow: hidden;
+}
+
+.faq-item__panel-inner p {
+  margin: 0;
+  padding: 0 26px 26px;
+  border-top: 1px solid var(--_border);
+  padding-top: 16px;
+  margin-top: -2px;
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--_text-muted);
+  max-width: 56ch;
+}
+
+/* ---------- responsive ---------------------------------------------------- */
+
+@media (max-width: 980px) {
+  .faq-section__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-section__heading,
+  .faq-section__lede {
+    max-width: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .faq-item__trigger {
+    padding: 18px 18px;
+    gap: 12px;
+  }
+
+  .faq-item__panel-inner p {
+    padding: 0 18px 20px;
+    padding-top: 14px;
+  }
+
+  .faq-stat-card {
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
+/* ---------- reduced motion -------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-section__intro {
+    animation: none;
+  }
+
+  .faq-item__panel,
+  .faq-item__icon {
+    transition: none;
+  }
+}

@@ -1,0 +1,364 @@
+/*
+  VideoHero.css
+  -------------
+  Reads theme tokens from :root (index.css), with fallbacks:
+
+  --secondary      deep slate          (fallback #1c1a17)
+  --font-heading   display typeface    (fallback 'Fraunces', Georgia, serif)
+  --font-body      UI / body typeface  (fallback 'Inter', system-ui, sans-serif)
+
+  Accent color for this section is red (per request), via --accent-red /
+  --accent-red-dark, independent of the site's amber --primary token.
+*/
+
+.video-hero {
+  --_accent: var(--accent-red, #d64545);
+  --_accent-dark: var(--accent-red-dark, #b23434);
+  --_secondary: var(--secondary, #1c1a17);
+  --_font-heading: var(--font-heading, "Fraunces", Georgia, serif);
+  --_font-body: var(--font-body, "Inter", system-ui, sans-serif);
+
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(480px, 68vh, 640px);
+  display: flex;
+  align-items: center;
+}
+
+.video-hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.55) brightness(0.6) contrast(1.05);
+  z-index: 0;
+}
+
+.video-hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 8, 7, 0.55) 0%,
+    rgba(10, 8, 7, 0.35) 40%,
+    rgba(10, 8, 7, 0.7) 100%
+  );
+}
+
+.video-hero__container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(48px, 8vw, 96px) clamp(20px, 5vw, 64px);
+}
+
+/* ---------------- Play button + pulse ---------------- */
+
+.video-hero__play-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+.video-hero__play {
+  position: relative;
+  width: 84px;
+  height: 84px;
+  padding: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  transition: border-color 220ms ease, background-color 220ms ease, transform 220ms ease;
+}
+
+.video-hero__play::before,
+.video-hero__play::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--_accent);
+  opacity: 0;
+  animation: video-hero-square-pulse 2.6s ease-out infinite;
+  pointer-events: none;
+}
+
+.video-hero__play::after {
+  animation-delay: 1.3s;
+}
+
+@keyframes video-hero-square-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.65;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+.video-hero__play-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+.video-hero__play-inner svg {
+  margin-left: 3px; /* optically center the play triangle */
+}
+
+.video-hero__play:hover,
+.video-hero__play:focus-visible {
+  border-color: var(--_accent);
+  transform: scale(1.06);
+}
+
+.video-hero__play:hover .video-hero__play-inner,
+.video-hero__play:focus-visible .video-hero__play-inner {
+  background: var(--_accent);
+  border-color: var(--_accent);
+}
+
+/* ---------------- Text content ---------------- */
+
+.video-hero__content {
+  text-align: left;
+}
+
+.video-hero__title {
+  margin: 0 0 22px;
+  font-family: var(--_font-heading);
+  font-weight: 700;
+  font-size: clamp(1.7rem, 3.6vw, 2.6rem);
+  line-height: 1.22;
+  color: #fff;
+}
+
+.video-hero__eyebrow {
+  margin: 0 0 20px;
+  font-family: var(--_font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.video-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 15px 26px;
+  background: var(--_accent);
+  color: #fff;
+  border-radius: 0;
+  font-family: var(--_font-body);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+
+.video-hero__cta-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.35);
+  transition: background-color 200ms ease;
+}
+
+.video-hero__cta svg {
+  transition: transform 200ms ease;
+}
+
+.video-hero__cta:hover,
+.video-hero__cta:focus-visible {
+  background: var(--_accent-dark);
+  box-shadow: 0 16px 30px -14px rgba(0, 0, 0, 0.55);
+  transform: translateY(-2px);
+}
+
+.video-hero__cta:hover svg,
+.video-hero__cta:focus-visible svg {
+  transform: translateX(4px);
+}
+
+/* ---------------- Video lightbox modal ---------------- */
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(8, 6, 5, 0.9);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 280ms ease, visibility 280ms ease;
+}
+
+.video-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-modal__frame {
+  position: relative;
+  width: min(920px, 100%);
+  aspect-ratio: 16 / 9;
+  background: #000;
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.7);
+  transform: scale(0.92);
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.video-modal.is-open .video-modal__frame {
+  transform: scale(1);
+}
+
+.video-modal__video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.video-modal__close {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: var(--_secondary);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 200ms ease, border-color 200ms ease, transform 200ms ease;
+}
+
+.video-modal__close:hover,
+.video-modal__close:focus-visible {
+  background: var(--_accent);
+  border-color: var(--_accent);
+  transform: rotate(90deg);
+}
+
+.video-modal__toggle {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 200ms ease, border-color 200ms ease, transform 200ms ease;
+}
+
+.video-modal__toggle svg {
+  margin-left: 2px;
+}
+
+.video-modal__toggle:hover,
+.video-modal__toggle:focus-visible {
+  background: var(--_accent);
+  border-color: var(--_accent);
+  transform: scale(1.08);
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 719px) {
+  .video-hero {
+    min-height: 78vh;
+  }
+
+  .video-hero__container {
+    padding: 40px 20px;
+  }
+
+  .video-hero__play {
+    width: 68px;
+    height: 68px;
+  }
+
+  .video-hero__title {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+
+  .video-hero__cta {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .video-modal {
+    padding: 16px;
+  }
+
+  .video-modal__close {
+    top: 8px;
+    right: 8px;
+    width: 36px;
+    height: 36px;
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .video-modal__toggle {
+    width: 38px;
+    height: 38px;
+    left: 10px;
+    bottom: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video-hero__play::before,
+  .video-hero__play::after {
+    animation: none;
+    opacity: 0;
+  }
+
+  .video-hero__cta,
+  .video-hero__cta svg,
+  .video-modal,
+  .video-modal__frame,
+  .video-modal__close,
+  .video-modal__toggle {
+    transition: none !important;
+  }
+}
+
+.video-hero a:focus-visible,
+.video-hero button:focus-visible,
+.video-modal button:focus-visible {
+  outline: 2px solid var(--_accent);
+  outline-offset: 2px;
+}
+.center{
+    text-align: center;
+}

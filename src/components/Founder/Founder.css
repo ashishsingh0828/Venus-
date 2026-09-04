@@ -1,0 +1,450 @@
+/* -------------------------------------------------------------------------
+   Company Info + Meet the Founders
+   Two panels, one light ("About"), one dark ("Founders"), sharing a
+   token block so the accent and type stay consistent between them.
+   ---------------------------------------------------------------------- */
+
+.company-section,
+.founders-section {
+  --_gold: var(--gold, #c9862f);
+  --_gold-light: var(--gold-light, #e0ac5c);
+  --_ink: var(--ink, #17140f);
+  --_ink-soft: var(--ink-soft, #211c17);
+  --_cream: var(--cream, #faf6ef);
+  --_cream-deep: var(--cream-deep, #f1e9d9);
+  --_paper: var(--paper, #f8f4ec);
+  --_muted-light: var(--muted-light, #8a8072);
+  --_muted-dark: var(--muted-dark, #a99e8c);
+  --_font-heading: var(--font-heading, "Fraunces", Georgia, serif);
+  --_font-body: var(--font-body, "Inter", system-ui, sans-serif);
+
+  font-family: var(--_font-body);
+}
+
+/* =========================================================================
+   1. COMPANY INFO (light panel)
+   ========================================================================= */
+
+.company-section {
+  background: var(--_cream);
+  color: var(--_ink);
+  padding: clamp(64px, 9vw, 112px) 0;
+}
+
+.company-section__grid {
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 24px);
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1fr);
+  gap: clamp(36px, 6vw, 88px);
+  align-items: center;
+}
+
+.company-section__media {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 5 / 6;
+  opacity: 0;
+  transform: translateX(-24px) scale(1.02);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.company-section__media[data-visible="true"] {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.company-section__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(23, 20, 15, 0.06);
+  pointer-events: none;
+}
+
+.company-section__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.company-section__content {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.8s 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.company-section__content[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.company-section__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--_gold);
+  margin-bottom: 20px;
+}
+
+.company-section__eyebrow span {
+  width: 28px;
+  height: 1.5px;
+  background: var(--_gold);
+  display: inline-block;
+}
+
+.company-section__heading {
+  font-family: var(--_font-heading);
+  font-weight: 600;
+  font-size: clamp(28px, 3.4vw, 42px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0 0 22px;
+  max-width: 18ch;
+}
+
+.company-section__text {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--_muted-light);
+  max-width: 52ch;
+  margin: 0 0 16px;
+}
+
+.company-section__stats {
+  display: flex;
+  gap: clamp(24px, 4vw, 44px);
+  margin-top: 36px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(23, 20, 15, 0.1);
+}
+
+.company-stat {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.company-section__content[data-visible="true"] .company-stat {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.company-stat__value {
+  font-family: var(--_font-heading);
+  font-weight: 600;
+  font-size: clamp(24px, 2.6vw, 32px);
+  color: var(--_ink);
+  margin: 0 0 4px;
+}
+
+.company-stat__value span {
+  color: var(--_gold);
+}
+
+.company-stat__label {
+  font-size: 13px;
+  color: var(--_muted-light);
+  margin: 0;
+  max-width: 14ch;
+  line-height: 1.4;
+}
+
+/* =========================================================================
+   2. MEET THE FOUNDERS (dark panel)
+   ========================================================================= */
+
+.founders-section {
+  position: relative;
+  background: var(--_ink);
+  color: var(--_paper);
+  padding: clamp(72px, 10vw, 120px) 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.founders-section::before {
+  content: "";
+  position: absolute;
+  inset: -30% -10% auto -10%;
+  height: 60%;
+  background: radial-gradient(
+    50% 100% at 50% 0%,
+    color-mix(in srgb, var(--_gold) 16%, transparent) 0%,
+    transparent 70%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.founders-section__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 24px);
+}
+
+.founders-section__intro {
+  max-width: 640px;
+  margin: 0 auto clamp(48px, 6vw, 72px);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.founders-section__intro[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.founders-section__heading {
+  font-family: var(--_font-heading);
+  font-weight: 600;
+  font-size: clamp(28px, 3.4vw, 40px);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+  color: #fff;
+}
+
+.founders-section__subtext {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--_muted-dark);
+  margin: 0;
+}
+
+/* ---------- founder grid -------------------------------------------------- */
+
+.founders-section__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+}
+
+.founders-section__grid::before {
+  content: "";
+  position: absolute;
+  top: 6%;
+  bottom: 6%;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(247, 243, 236, 0.16) 20%,
+    rgba(247, 243, 236, 0.16) 80%,
+    transparent
+  );
+}
+
+.founder-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0 clamp(24px, 4vw, 56px);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.founder-card[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.founder-card__portrait {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 4 / 4.6;
+  margin-bottom: 26px;
+}
+
+.founder-card__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(1) contrast(1.05) brightness(0.96);
+  transform: scale(1.02);
+  transition: filter 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.founder-card:hover .founder-card__portrait img,
+.founder-card:focus-within .founder-card__portrait img {
+  filter: grayscale(0) contrast(1) brightness(1);
+  transform: scale(1.06);
+}
+
+.founder-card__monogram {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--_gold);
+  color: var(--_ink);
+  font-family: var(--_font-heading);
+  font-weight: 600;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 22px -8px rgba(0, 0, 0, 0.5);
+}
+
+.founder-card__content {
+  position: relative;
+}
+
+.founder-card__mark {
+  position: absolute;
+  top: -34px;
+  left: -6px;
+  font-family: var(--_font-heading);
+  font-size: 84px;
+  line-height: 1;
+  color: rgba(247, 243, 236, 0.07);
+  pointer-events: none;
+  user-select: none;
+}
+
+.founder-card__name {
+  font-family: var(--_font-heading);
+  font-weight: 600;
+  font-size: 23px;
+  margin: 0 0 4px;
+  color: #fff;
+}
+
+.founder-card__role {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--_gold-light);
+  margin: 0 0 16px;
+}
+
+.founder-card__bio {
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--_muted-dark);
+  margin: 0 0 20px;
+  max-width: 40ch;
+}
+
+.founder-card__links {
+  display: flex;
+  gap: 10px;
+}
+
+.founder-card__links a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(247, 243, 236, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--_paper);
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.founder-card__links a:hover {
+  background: var(--_gold);
+  border-color: var(--_gold);
+  color: var(--_ink);
+  transform: translateY(-2px);
+}
+
+.founder-card__links a:focus-visible {
+  outline: 2px solid var(--_gold);
+  outline-offset: 3px;
+}
+
+/* =========================================================================
+   RESPONSIVE
+   ========================================================================= */
+
+@media (max-width: 900px) {
+  .company-section__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .company-section__media {
+    aspect-ratio: 16 / 10;
+  }
+
+  .company-section__heading,
+  .company-section__text {
+    max-width: none;
+  }
+
+  .founders-section__grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .founders-section__grid::before {
+    display: none;
+  }
+
+  .founder-card {
+    padding: 0;
+    max-width: 480px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .company-section__stats {
+    flex-wrap: wrap;
+    row-gap: 20px;
+  }
+
+  .founder-card__mark {
+    font-size: 64px;
+    top: -24px;
+  }
+
+  .founder-card__bio {
+    max-width: none;
+  }
+}
+
+/* =========================================================================
+   REDUCED MOTION
+   ========================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .company-section__media,
+  .company-section__content,
+  .company-stat,
+  .founders-section__intro,
+  .founder-card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .founder-card__portrait img {
+    transition: none;
+  }
+}

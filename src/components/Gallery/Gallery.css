@@ -1,0 +1,230 @@
+/*
+  GalleryGrid.css
+  ---------------
+  Reads theme tokens from :root (index.css), with fallbacks:
+
+  --primary        warm amber accent   (fallback #e0942f)
+  --primary-dark   deeper amber        (fallback #c67e1f)
+  --secondary      deep slate          (fallback #1c1a17)
+  --bg-surface     section background  (fallback #faf6ef)
+  --font-body      UI / body typeface  (fallback 'Inter', system-ui, sans-serif)
+*/
+
+.gallery-grid {
+  --_primary: var(--accent-red, #d64545);
+  --_primary-dark: var(--accent-red-dark, #b23434);
+  --_secondary: var(--secondary, #1c1a17);
+  --_surface: var(--bg-surface, #faf6ef);
+  --_font-body: var(--font-body, "Inter", system-ui, sans-serif);
+
+  background: var(--_surface);
+  padding: clamp(28px, 5vw, 48px) 0;
+}
+
+.gallery-grid__inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(3px, 0.6vw, 8px);
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(3px, 0.6vw, 8px);
+}
+
+/* ---------------- Tile ---------------- */
+
+.gallery-tile {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 4.3;
+  overflow: hidden;
+  isolation: isolate;
+  text-decoration: none;
+
+  /* Scroll-reveal entrance */
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gallery-tile.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-tile__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 700ms ease;
+}
+
+.gallery-tile:hover .gallery-tile__image,
+.gallery-tile:focus-visible .gallery-tile__image {
+  transform: scale(1.06);
+}
+
+/* Subtle darken so the white panel reads clearly against any photo */
+.gallery-tile__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(15, 12, 8, 0) 55%, rgba(15, 12, 8, 0.35) 100%);
+  opacity: 0;
+  transition: opacity 350ms ease;
+  pointer-events: none;
+}
+
+.gallery-tile:hover .gallery-tile__scrim,
+.gallery-tile:focus-visible .gallery-tile__scrim {
+  opacity: 1;
+}
+
+/* Floating panel — inset on every side, slides up further into view on hover */
+.gallery-tile__panel {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  background: #fff;
+  padding: clamp(16px, 2.2vw, 22px);
+  box-shadow: 0 20px 38px -16px rgba(0, 0, 0, 0.5);
+  transform: translateY(160%);
+  opacity: 0;
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease;
+}
+
+.gallery-tile:hover .gallery-tile__panel,
+.gallery-tile:focus-visible .gallery-tile__panel {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.gallery-tile__panel-title {
+  font-family: var(--_font-body);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--_secondary);
+  white-space: nowrap;
+}
+
+.gallery-tile__panel-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 0;
+  background: var(--_primary);
+  color: #fff;
+  transition: background-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+}
+
+.gallery-tile__panel-btn svg {
+  transition: transform 220ms ease;
+}
+
+.gallery-tile:hover .gallery-tile__panel-btn,
+.gallery-tile:focus-visible .gallery-tile__panel-btn {
+  background: var(--_primary-dark);
+}
+
+/* Extra hover effect on the icon/button itself, on top of the tile hover reveal */
+.gallery-tile__panel-btn:hover {
+  background: var(--_secondary);
+  transform: scale(1.1) rotate(-45deg);
+  box-shadow: 0 10px 20px -8px color-mix(in srgb, var(--_primary) 60%, transparent);
+}
+
+.gallery-tile:hover .gallery-tile__panel-btn svg,
+.gallery-tile:focus-visible .gallery-tile__panel-btn svg {
+  transform: translateX(3px);
+}
+
+.gallery-tile__panel-btn:hover svg {
+  transform: translateX(0) rotate(45deg);
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 1023px) {
+  .gallery-grid__inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 639px) {
+  .gallery-grid__inner {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 0 6px;
+  }
+
+  .gallery-tile {
+    aspect-ratio: 4 / 3.4;
+  }
+
+  .gallery-tile__panel {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    padding: 14px 16px;
+    gap: 14px;
+  }
+
+  .gallery-tile__panel-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .gallery-tile__panel-title {
+    font-size: 0.9rem;
+  }
+}
+
+@media (hover: none) {
+  .gallery-tile__panel {
+    transform: translateY(0);
+    opacity: 1;
+    box-shadow: none;
+  }
+
+  .gallery-tile__scrim {
+    opacity: 1;
+  }
+
+  .gallery-tile__panel-title {
+    font-size: 0.92rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-tile,
+  .gallery-tile__image,
+  .gallery-tile__scrim,
+  .gallery-tile__panel,
+  .gallery-tile__panel-btn,
+  .gallery-tile__panel-btn svg {
+    transition: none !important;
+  }
+
+  .gallery-tile {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.gallery-tile:focus-visible {
+  outline: 2px solid var(--_primary);
+  outline-offset: -2px;
+}
