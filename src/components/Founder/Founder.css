@@ -1,32 +1,22 @@
-/* -------------------------------------------------------------------------
-   Company Info + Meet the Founders
-   Two panels, one light ("About"), one dark ("Founders"), sharing a
-   token block so the accent and type stay consistent between them.
-   ---------------------------------------------------------------------- */
-
 .company-section,
 .founders-section {
-  --_gold: var(--gold, #c9862f);
-  --_gold-light: var(--gold-light, #e0ac5c);
-  --_ink: var(--ink, #17140f);
-  --_ink-soft: var(--ink-soft, #211c17);
-  --_cream: var(--cream, #faf6ef);
-  --_cream-deep: var(--cream-deep, #f1e9d9);
-  --_paper: var(--paper, #f8f4ec);
-  --_muted-light: var(--muted-light, #8a8072);
-  --_muted-dark: var(--muted-dark, #a99e8c);
+  --_primary: var(--primary, #b3161f);
+  --_primary-light: var(--primary-light, #e2555f);
+  --_ink: var(--ink, #1a1a1a);
+  --_ink-soft: var(--ink-soft, #242424);
+  --_surface: var(--surface, #ffffff);
+  --_surface-deep: var(--surface-deep, #f2f2f2);
+  --_paper: var(--paper, #ffffff);
+  --_muted-light: var(--muted-light, #6b6b6b);
+  --_muted-dark: var(--muted-dark, #b3b3b3);
   --_font-heading: var(--font-heading, "Fraunces", Georgia, serif);
   --_font-body: var(--font-body, "Inter", system-ui, sans-serif);
 
   font-family: var(--_font-body);
 }
 
-/* =========================================================================
-   1. COMPANY INFO (light panel)
-   ========================================================================= */
-
 .company-section {
-  background: var(--_cream);
+  background: var(--_surface);
   color: var(--_ink);
   padding: clamp(64px, 9vw, 112px) 0;
 }
@@ -62,7 +52,7 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  box-shadow: inset 0 0 0 1px rgba(23, 20, 15, 0.06);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
   pointer-events: none;
 }
 
@@ -92,14 +82,14 @@
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.03em;
-  color: var(--_gold);
+  color: var(--_primary);
   margin-bottom: 20px;
 }
 
 .company-section__eyebrow span {
   width: 28px;
   height: 1.5px;
-  background: var(--_gold);
+  background: var(--_primary);
   display: inline-block;
 }
 
@@ -126,7 +116,7 @@
   gap: clamp(24px, 4vw, 44px);
   margin-top: 36px;
   padding-top: 30px;
-  border-top: 1px solid rgba(23, 20, 15, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .company-stat {
@@ -150,7 +140,7 @@
 }
 
 .company-stat__value span {
-  color: var(--_gold);
+  color: var(--_primary);
 }
 
 .company-stat__label {
@@ -160,10 +150,6 @@
   max-width: 14ch;
   line-height: 1.4;
 }
-
-/* =========================================================================
-   2. MEET THE FOUNDERS (dark panel)
-   ========================================================================= */
 
 .founders-section {
   position: relative;
@@ -181,7 +167,7 @@
   height: 60%;
   background: radial-gradient(
     50% 100% at 50% 0%,
-    color-mix(in srgb, var(--_gold) 16%, transparent) 0%,
+    color-mix(in srgb, var(--_primary) 20%, transparent) 0%,
     transparent 70%
   );
   z-index: 0;
@@ -228,8 +214,6 @@
   margin: 0;
 }
 
-/* ---------- founder grid -------------------------------------------------- */
-
 .founders-section__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -246,8 +230,8 @@
   background: linear-gradient(
     180deg,
     transparent,
-    rgba(247, 243, 236, 0.16) 20%,
-    rgba(247, 243, 236, 0.16) 80%,
+    rgba(255, 255, 255, 0.16) 20%,
+    rgba(255, 255, 255, 0.16) 80%,
     transparent
   );
 }
@@ -298,8 +282,8 @@
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background: var(--_gold);
-  color: var(--_ink);
+  background: var(--_primary);
+  color: #fff;
   font-family: var(--_font-heading);
   font-weight: 600;
   font-size: 15px;
@@ -320,7 +304,7 @@
   font-family: var(--_font-heading);
   font-size: 84px;
   line-height: 1;
-  color: rgba(247, 243, 236, 0.07);
+  color: rgba(255, 255, 255, 0.07);
   pointer-events: none;
   user-select: none;
 }
@@ -337,7 +321,7 @@
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.02em;
-  color: var(--_gold-light);
+  color: var(--_primary-light);
   margin: 0 0 16px;
 }
 
@@ -358,7 +342,7 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1px solid rgba(247, 243, 236, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -368,20 +352,16 @@
 }
 
 .founder-card__links a:hover {
-  background: var(--_gold);
-  border-color: var(--_gold);
-  color: var(--_ink);
+  background: var(--_primary);
+  border-color: var(--_primary);
+  color: #fff;
   transform: translateY(-2px);
 }
 
 .founder-card__links a:focus-visible {
-  outline: 2px solid var(--_gold);
+  outline: 2px solid var(--_primary);
   outline-offset: 3px;
 }
-
-/* =========================================================================
-   RESPONSIVE
-   ========================================================================= */
 
 @media (max-width: 900px) {
   .company-section__grid {
@@ -428,10 +408,6 @@
     max-width: none;
   }
 }
-
-/* =========================================================================
-   REDUCED MOTION
-   ========================================================================= */
 
 @media (prefers-reduced-motion: reduce) {
   .company-section__media,

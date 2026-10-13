@@ -1,12 +1,13 @@
 import './MarqueeText.css'
 
 const marqueeItems = [
-  'Exterior Paving',
-  'Patio Installation',
-  'Driveway Solutions',
-  'Commercial Surfaces',
-  'Stone Crafting',
-  'Landscape Architecture',
+  'Hospital & OT Doors',
+  'Hermetically Sealed Doors',
+  'Lead-Lined Radiation Doors',
+  'Automatic Sliding Systems',
+  'Surgical Pendants',
+  'Surgical Scrub Sinks',
+  'Motor Control Panels',
 ]
 
 export default function MarqueeText() {

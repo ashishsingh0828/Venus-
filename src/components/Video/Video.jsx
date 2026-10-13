@@ -7,8 +7,8 @@ export default function VideoHero({
   title = "Need Assistance With Contemporary Tiles & Toilet Come Along With Us",
   ctaLabel = "Join With Us",
   ctaHref = "/contact",
-  backgroundImage = "https://picsum.photos/seed/video-hero-bg/1600/900",
-  videoSrc = "https://www.w3schools.com/html/mov_bbb.mp4",
+  backgroundImage = "/assets/images/breaadcrumb.png",
+  videoSrc = "/assets/images/video.mp4",
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);

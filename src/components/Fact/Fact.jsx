@@ -2,20 +2,19 @@ import { useEffect, useRef, useState } from "react";
 import { Check } from "lucide-react";
 import "./Fact.css";
 
-
 const STATS = [
-  { id: 1, value: 1000, suffix: "+", label: "Saving Water by Recycling" },
-  { id: 2, value: 6, suffix: "+", label: "Exclusive Display Centers" },
-  { id: 3, value: 160, suffix: "+", label: "Dealers" },
-  { id: 4, value: 12, suffix: "+", label: "Product Categories" },
-  { id: 5, value: 2000, suffix: "+", label: "Project Completion" },
+  { id: 1, value: 500, suffix: "+", label: "OT Doors Installed" },
+  { id: 2, value: 100, suffix: "+", label: "Hospital Projects Delivered" },
+  { id: 3, value: 50, suffix: "+", label: "Healthcare Clients" },
+  { id: 4, value: 6, suffix: "+", label: "Core Product Lines" },
+  { id: 5, value: 100, suffix: "%", label: "Hygiene Compliance" },
 ];
 
 const CHECKLIST = [
-  "More Expensive",
-  "Less Maintenance",
-  "Heat-Resistant",
-  "Elegant Vein Patterns",
+  "SS304 & HPL Antimicrobial Construction",
+  "Airtight Hermetic & Acoustic Sealing",
+  "Lead-Lined Radiation Protection",
+  "Custom Single, Double & Unequal Leaf",
 ];
 
 function useInView(options) {
@@ -91,7 +90,7 @@ export default function FactsExpertiseSection() {
     <section className="facts-expertise">
       {/* ---------------- Fact & Figures ---------------- */}
       <div className="facts" ref={factsRef}>
-        <h2 className="facts__heading">Fact &amp; Figures</h2>
+        <h2 className="facts__heading">Facts &amp; Figures</h2>
 
         <div className="facts__row">
           {row1.map((stat, i) => (
@@ -120,14 +119,14 @@ export default function FactsExpertiseSection() {
             </div>
 
             <h2 className="expertise__heading">
-              Skilled Flooring Installers For Your House
+              Engineered Healthcare Doors &amp; Cleanroom Solutions
             </h2>
 
             <p className="expertise__text">
-              There are many variations of passages of Lorem Ipsum available,lore
-              xyz there isn&rsquo;t anything but the majority have suffered
-              alteration in some form,lor by ipsu injected humour, or randomised
-              words which don&rsquo;t look even slightly
+              Venus Hospital Door Solutions manufactures certified hospital entry systems, 
+              hermetic doors, motor control panels, and OT infrastructure from Faridabad, Haryana. 
+              Our manufacturing adheres to strict healthcare cleanroom tolerances, ensuring pressure-sealed, 
+              radiation-safe, and contamination-free environments for operating theaters and intensive care units.
             </p>
 
             <ul className="expertise__checklist">
@@ -146,24 +145,24 @@ export default function FactsExpertiseSection() {
             <div className="expertise__collage">
               <div className="expertise__photo expertise__photo--tall">
                 <img
-                  src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=700&h=900&fit=crop"
-                  alt="Installer fitting wall tile"
+                  src="/assets/images/services/hermetic.png"
+                  alt="Hospital Operation Theater Door Installation"
                   loading="lazy"
                 />
               </div>
               <div className="expertise__photo expertise__photo--short">
                 <img
-                  src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=700&h=760&fit=crop"
-                  alt="Installer measuring flooring material"
+                 src="/assets/images/services/scrub.png"
+                  alt="Hermetic Cleanroom Sliding Door"
                   loading="lazy"
                 />
               </div>
 
               <div className="expertise__badge">
                 <p className="expertise__badge-value">
-                  25<span>+</span>
+                  Est.<span> 2022</span>
                 </p>
-                <p className="expertise__badge-label">Years Of Experience</p>
+                <p className="expertise__badge-label">Trusted Healthcare Partner</p>
               </div>
             </div>
           </div>

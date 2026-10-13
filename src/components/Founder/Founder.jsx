@@ -41,29 +41,29 @@ function TwitterIcon({ size = 17, strokeWidth = 1.8, className = "" }) {
 }
 
 const STATS = [
-  { id: 1, value: 12, suffix: "+", label: "Years in business" },
-  { id: 2, value: 5000, suffix: "+", label: "Projects completed" },
-  { id: 3, value: 40, suffix: "+", label: "Skilled craftspeople" },
+  { id: 1, value: 4, suffix: "+", label: "Years of Excellence" },
+  { id: 2, value: 500, suffix: "+", label: "OT Doors Delivered" },
+  { id: 3, value: 100, suffix: "%", label: "Cleanroom Compliance" },
 ];
 
 const FOUNDERS = [
   {
     id: 1,
-    name: "Elena Whitfield",
-    role: "Co-Founder & Creative Director",
-    bio: "Elena trained as an interior architect before turning her attention to flooring, convinced the ground beneath a room shapes everything above it. She leads material sourcing and every showroom you'll walk through.",
+    name: "Poonam",
+    role: "CEO & Managing Director",
+    bio: "Poonam spearheads corporate strategy, regulatory compliance, and business development at Venus Hospital Door Solutions, ensuring every product aligns with international healthcare standards and customer requirements.",
     image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&h=860&fit=crop&crop=faces",
-    links: { linkedin: "#", twitter: "#", mail: "mailto:elena@florem.example" },
+      "/assets/images/Profile/second.png",
+    links: { linkedin: "#", twitter: "#", mail: "mailto:info@venushospitaldoors.com" },
   },
   {
     id: 2,
-    name: "Marcus Odei",
-    role: "Co-Founder & Head of Craft",
-    bio: "Marcus spent nine years laying floors before he ever managed one. He still visits every job site in the first week, and the standards he set on day one are the ones the whole crew works to today.",
+    name: "Parveen Solanki",
+    role: "Head of Technical Operations & Manufacturing",
+    bio: "Parveen oversees factory production, mechanical engineering, and quality assurance in Faridabad, supervising the fabrication of hermetic seals, radiation barriers, and automated hospital door systems.",
     image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=700&h=860&fit=crop&crop=faces",
-    links: { linkedin: "#", twitter: "#", mail: "mailto:marcus@florem.example" },
+       "/assets/images/Profile/first.png",
+    links: { linkedin: "#", twitter: "#", mail: "mailto:support@venushospitaldoors.com" },
   },
 ];
 
@@ -185,8 +185,8 @@ export default function CompanyFoundersSection() {
         <div className="company-section__grid">
           <div className="company-section__media" data-visible={companyInView}>
             <img
-              src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1100&h=1300&fit=crop"
-              alt="A Florem craftsperson fitting timber flooring"
+              src="/assets/images/services/motorservice.png"
+              alt="Venus Hospital Door Solutions sterile manufacturing"
               loading="lazy"
             />
           </div>
@@ -194,22 +194,23 @@ export default function CompanyFoundersSection() {
           <div className="company-section__content" data-visible={companyInView}>
             <div className="company-section__eyebrow">
               <span aria-hidden="true" />
-              About Florem
+              About Venus Hospital Door Solutions
             </div>
 
             <h2 className="company-section__heading">
-              Twelve years of crafting floors people love to walk on
+              Dedicated to Precision Hospital Entry &amp; Cleanroom Infrastructure
             </h2>
 
             <p className="company-section__text">
-              Florem started as a two-person workshop fitting reclaimed timber into
-              old apartments, one room at a time. We're larger now, but the job
-              hasn't changed: choose honest materials, cut them precisely, and lay
-              them so well you forget they were ever installed.
+              Established in 2022 in Faridabad, Haryana, Venus Hospital Door Solutions
+              operates as a premier manufacturer and supplier of hospital doors,
+              hermetic operation theater doors, automatic sliding systems, surgical pendants,
+              and motor control panels (MCP).
             </p>
             <p className="company-section__text">
-              Every project still passes through the same hands that started this
-              company — from the first site visit to the last coat of finish.
+              From lead-lined radiation shielding doors to stainless steel scrub stations,
+              our team ensures every product conforms to stringent healthcare guidelines,
+              delivering durability, infection prevention, and airtight acoustic performance.
             </p>
 
             <div className="company-section__stats">
@@ -233,11 +234,11 @@ export default function CompanyFoundersSection() {
         <div className="founders-section__inner">
           <div className="founders-section__intro" data-visible={foundersInView}>
             <h2 className="founders-section__heading">
-              The two people who still sign off every floor
+              Leadership Driving Healthcare Infrastructure
             </h2>
             <p className="founders-section__subtext">
-              Florem is still run by the pair who started it — one from the design
-              side, one from the trade. Between them, every job gets both.
+              Guided by experienced leadership, Venus Hospital Door Solutions combines
+              business governance with engineering precision to deliver reliable medical door systems.
             </p>
           </div>
 

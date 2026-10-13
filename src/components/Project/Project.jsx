@@ -9,65 +9,171 @@ import "./Project.css";
 
 
 
-const CATEGORIES = ["All Projects", "Residential", "Commercial", "Paving", "Vinyl Sheet"];
+const CATEGORIES = [
+  "All Projects",
+  "Hospital & OT Doors",
+  "Labs",
+];
 
 const PROJECTS = [
+  // Hospital & OT Doors
   {
     id: 1,
-    title: "Hearth & Oak Living Room",
-    category: "Residential",
-    image:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&h=1100&fit=crop",
+    title: "Operation Theater SS Door",
+    category: "Hospital & OT Doors",
+    image: "/assets/images/Autoslides/operation-theater-sliding-doors.png",
   },
   {
     id: 2,
-    title: "New Office Floor",
-    category: "Commercial",
-    image:
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=900&h=1100&fit=crop",
+    title: "Hospital Automatic Hermetic OT Door",
+    category: "Hospital & OT Doors",
+    image: "/assets/images/Autoslides/automatic-hermetic-sliding-door.png",
   },
   {
     id: 3,
-    title: "Driveway Paving Work",
-    category: "Paving",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&h=1100&fit=crop",
+    title: "Hospital Hermetically Sealed OT Door",
+    category: "Hospital & OT Doors",
+    image: "/assets/images/Autoslides/hermetically-sealed-sliding-door.png",
   },
   {
     id: 4,
-    title: "Vinyl Sheet Suite",
-    category: "Vinyl Sheet",
+    title: "Hermetically Sealed Sliding Hospital Door",
+    category: "Hospital & OT Doors",
     image:
-      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=900&h=1100&fit=crop",
+      "/assets/images/Autoslides/hermetically-sealed-sliding-hospital-door.png",
   },
   {
     id: 5,
-    title: "Bath Marble Finish",
-    category: "Residential",
-    image:
-      "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=900&h=1100&fit=crop",
+    title: "Lead Lined Doors",
+    category: "Hospital & OT Doors",
+    image: "/assets/images/Hospital door/leaned.png",
   },
   {
     id: 6,
-    title: "Bamboo Hallway",
-    category: "Residential",
-    image:
-      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900&h=1100&fit=crop",
+    title: "HPL Hinge Lead Door",
+    category: "Hospital & OT Doors",
+    image: "/assets/images/Hospital door/HPL Hinge Lead Door.png",
   },
   {
     id: 7,
-    title: "Showroom Concrete Seal",
-    category: "Commercial",
-    image:
-      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=900&h=1100&fit=crop",
+    title: "SS304 Hospital Hinged Door",
+    category: "Hospital & OT Doors",
+    image: "/assets/images/Hospital door/SS304 HOSPITAL HINGED DOOR.png",
   },
   {
     id: 8,
-    title: "Courtyard Stone Paving",
-    category: "Paving",
+    title: "SS304 Single Leaf Hinged Door",
+    category: "Hospital & OT Doors",
     image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&h=1100&fit=crop",
+      "/assets/images/Hospital door/SS304 Single Leaf Hinged Door.png",
   },
+  {
+    id: 9,
+    title: "HPL Hermetically Sealed Manual Sliding Lead Lined Door",
+    category: "Hospital & OT Doors",
+    image:
+      "/assets/images/Hospital door/HPL Hermatically Sealed Manual Sliding Lead Lined Door.png",
+  },
+  {
+    id: 10,
+    title: "SS304 Hospital Door",
+    category: "Hospital & OT Doors",
+    image: "/assets/images/Hospital door/Ss 304 Hospital Door.png",
+  },
+  {
+    id: 11,
+    title: "SS304 Lead Single Leaf Hinged Door",
+    category: "Hospital & OT Doors",
+    image:
+      "/assets/images/Hospital door/SS304 Lead Single Leaf Hinged Door.png",
+  },
+  {
+    id: 12,
+    title: "SS304 Double Leaf Lead Hinged Door",
+    category: "Hospital & OT Doors",
+    image:
+      "/assets/images/Hospital door/SS304 Double Leaf Lead Hinged Door.png",
+  },
+  {
+    id: 13,
+    title: "Operation Theater Double Doors",
+    category: "Hospital & OT Doors",
+    image:
+      "/assets/images/Hospital door/operation-theater-double-doors.png",
+  },
+
+  // Surgical Scrub Sinks
+  {
+    id: 14,
+    title: "Foot Operated Automatic Surgical Scrub Sink For Hospital",
+    category: "Hospital & OT Doors",
+    image:
+      "/assets/images/Surgical Scrub/Foot Operated Automatic Surgical Scrub Sink For Hospital.png",
+  },
+  {
+    id: 15,
+    title: "Stainless Steel Surgical Scrub Sink Station",
+    category: "Hospital & OT Doors",
+    image:
+      "/assets/images/Surgical Scrub/stainless-steel-surgical-scrub-sink-station.png",
+  },
+
+  // Surgical Pendants
+  {
+    id: 16,
+    title: "Double Arm Pendant",
+    category: "Hospital & OT Doors",
+    image: "/assets/images/Surgical Pendant/Double Arm Pendant.png",
+  },
+  {
+    id: 17,
+    title: "Single Arm Surgical Pendant",
+    category: "Hospital & OT Doors",
+    image:
+      "/assets/images/Surgical Pendant/Single Arm Surgical Pendant.png",
+  },
+  {
+    id: 18,
+    title: "Anesthesia Straight Pendant",
+    category: "Hospital & OT Doors",
+    image:
+      "/assets/images/Surgical Pendant/anesthesia-straight-pendant.png",
+  },
+  {
+    id: 19,
+    title: "Hospital Surgical Pendant",
+    category: "Hospital & OT Doors",
+    image:
+      "/assets/images/Surgical Pendant/Hospital-surgical-pendant.png",
+  },
+   {
+    id: 20,
+    title: "Double Arm Pendant",
+  category: "Labs",
+    image: "/assets/images/Surgical Pendant/Double Arm Pendant.png",
+  },
+  {
+    id: 21,
+    title: "Single Arm Surgical Pendant",
+   category: "Labs",
+    image:
+      "/assets/images/Surgical Pendant/Single Arm Surgical Pendant.png",
+  },
+  {
+    id: 22,
+    title: "Anesthesia Straight Pendant",
+    category: "Labs",
+    image:
+      "/assets/images/Surgical Pendant/anesthesia-straight-pendant.png",
+  },
+  {
+    id: 23,
+    title: "Hospital Surgical Pendant",
+    category: "Labs",
+    image:
+      "/assets/images/Surgical Pendant/Hospital-surgical-pendant.png",
+  },
+
 ];
 
 export default function ProjectsSection() {

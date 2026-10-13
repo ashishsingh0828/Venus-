@@ -2,6 +2,7 @@
 
 :root {
   --primary: #e63946;
+  --_primary: #e63946;
   --primary-hover: #c92a37;
   --primary-light: #ffe5e7;
   --primary-glow: rgba(230, 57, 70, 0.25);
@@ -151,4 +152,7 @@ ul, ol {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.site-header__brand-text img{
+  height:60px;
 }

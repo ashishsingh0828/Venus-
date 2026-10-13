@@ -3,15 +3,22 @@
   --------------
   Reads theme tokens from :root (index.css), with fallbacks:
 
-  --primary        warm amber accent     (fallback #e0942f)
-  --primary-dark   deeper amber, hover   (fallback #c67e1f)
+  --primary        brand red             (fallback #b3161f)
+  --primary-dark   deeper red, hover     (fallback #8c1017)
   --font-heading   display typeface      (fallback 'Fraunces', Georgia, serif)
   --font-body      UI / body typeface    (fallback 'Inter', system-ui, sans-serif)
+
+  Note on mobile spacing: Header.css renders the site header as
+  position: fixed, so it doesn't take up flow space — it floats over this
+  section on purpose (transparent, for legibility over the video). On short
+  mobile viewports the badge/title used to start too close to the top edge
+  and sat under the header's hit area, so the top padding below is bumped up
+  specifically in the mobile and short-landscape breakpoints.
 */
 
 .hero-slider {
-  --_primary: var(--primary, #e0942f);
-  --_primary-dark: var(--primary-dark, #c67e1f);
+  --_primary: var(--primary, #b3161f);
+  --_primary-dark: var(--primary-dark, #8c1017);
   --_font-heading: var(--font-heading, "Fraunces", Georgia, serif);
   --_font-body: var(--font-body, "Inter", system-ui, sans-serif);
 
@@ -123,8 +130,8 @@
   padding: 7px 16px;
   border-radius: 999px;
   border: 1px solid color-mix(in srgb, var(--_primary) 55%, transparent);
-  background: color-mix(in srgb, var(--_primary) 14%, transparent);
-  color: var(--_primary);
+  background: color-mix(in srgb, var(--_primary) 16%, transparent);
+  color: #ffffff;
   font-family: var(--_font-body);
   font-size: 0.78rem;
   font-weight: 600;
@@ -147,7 +154,7 @@
   font-size: clamp(2.4rem, 5.6vw, 4.4rem);
   line-height: 1.05;
   letter-spacing: -0.01em;
-  color: #f6f1e6;
+  color: #ffffff;
 }
 
 .hero-slider__description {
@@ -156,7 +163,7 @@
   font-family: var(--_font-body);
   font-size: clamp(1rem, 1.4vw, 1.15rem);
   line-height: 1.6;
-  color: rgba(246, 241, 230, 0.82);
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .hero-slider__ctas {
@@ -182,7 +189,7 @@
 
 .hero-slider__cta--primary {
   background: var(--_primary);
-  color: #1c1a17;
+  color: #ffffff;
   border: 1px solid var(--_primary);
 }
 
@@ -196,14 +203,14 @@
 
 .hero-slider__cta--secondary {
   background: transparent;
-  color: #f6f1e6;
-  border: 1px solid rgba(246, 241, 230, 0.35);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .hero-slider__cta--secondary:hover,
 .hero-slider__cta--secondary:focus-visible {
-  border-color: #f6f1e6;
-  background: rgba(246, 241, 230, 0.08);
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
 }
 
@@ -220,9 +227,9 @@
   width: 50px;
   height: 50px;
   border-radius: 0;
-  border: 1px solid rgba(246, 241, 230, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   background: rgba(10, 9, 8, 0.4);
-  color: #f6f1e6;
+  color: #ffffff;
   cursor: pointer;
   backdrop-filter: blur(6px);
   transition: background-color 200ms ease, border-color 200ms ease, transform 200ms ease,
@@ -233,7 +240,7 @@
 .hero-slider__arrow:focus-visible {
   background: var(--_primary);
   border-color: var(--_primary);
-  color: #1c1a17;
+  color: #ffffff;
   transform: translateY(-50%) scale(1.05);
 }
 
@@ -259,7 +266,7 @@
   padding: 8px 12px;
   border-radius: 999px;
   background: rgba(10, 9, 8, 0.35);
-  border: 1px solid rgba(246, 241, 230, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(6px);
 }
 
@@ -271,8 +278,8 @@
   height: 28px;
   border-radius: 0;
   border: none;
-  background: rgba(246, 241, 230, 0.12);
-  color: #f6f1e6;
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
   cursor: pointer;
   flex-shrink: 0;
   transition: background-color 200ms ease, color 200ms ease;
@@ -281,7 +288,7 @@
 .hero-slider__play-toggle:hover,
 .hero-slider__play-toggle:focus-visible {
   background: var(--_primary);
-  color: #1c1a17;
+  color: #ffffff;
 }
 
 .hero-slider__progress-track {
@@ -295,7 +302,7 @@
   width: 40px;
   height: 4px;
   border-radius: 999px;
-  background: rgba(246, 241, 230, 0.22);
+  background: rgba(255, 255, 255, 0.24);
   border: none;
   padding: 0;
   cursor: pointer;
@@ -325,7 +332,7 @@
 }
 
 .hero-slider__progress-seg:hover {
-  background: rgba(246, 241, 230, 0.34);
+  background: rgba(255, 255, 255, 0.36);
 }
 
 /* ---------------- Responsive ---------------- */
@@ -335,15 +342,18 @@
     min-height: 100dvh;
   }
 
+  /* Extra top padding here: the fixed header sits at ~72px tall on mobile
+     but floats over this section, so the badge/title need real clearance
+     underneath its hit area instead of starting right under it. */
   .hero-slider__content {
     align-items: center;
-    padding-top: clamp(110px, 22vh, 170px);
+    padding-top: calc(clamp(150px, 30vh, 220px) + env(safe-area-inset-top, 0px));
     padding-bottom: clamp(72px, 12vh, 120px);
   }
 
   .hero-slider__overlay {
     background:
-      linear-gradient(180deg, rgba(8, 7, 6, 0.55) 0%, rgba(8, 7, 6, 0.3) 34%, rgba(8, 7, 6, 0.82) 100%);
+      linear-gradient(180deg, rgba(8, 7, 6, 0.6) 0%, rgba(8, 7, 6, 0.32) 34%, rgba(8, 7, 6, 0.82) 100%);
   }
 
   .hero-slider__badge {
@@ -401,7 +411,8 @@
   }
 }
 
-/* Landscape phones/tablets: short viewport height needs compact spacing */
+/* Landscape phones/tablets: short viewport height needs compact spacing,
+   but still enough top clearance to clear the fixed header. */
 @media (orientation: landscape) and (max-height: 520px) {
   .hero-slider {
     min-height: 100dvh;
@@ -409,7 +420,7 @@
 
   .hero-slider__content {
     align-items: center;
-    padding-top: 88px;
+    padding-top: calc(104px + env(safe-area-inset-top, 0px));
     padding-bottom: 72px;
   }
 
@@ -476,4 +487,13 @@
 .hero-slider button:focus-visible {
   outline: 2px solid var(--_primary);
   outline-offset: 2px;
+}
+
+@media (max-width: 500px) {
+    .hero-slider {
+        height: 100%;
+    }
+        .hero-slider__content{
+          padding-top: 120px;
+        }
 }

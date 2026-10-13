@@ -1,20 +1,31 @@
 import { useEffect, useRef, useState } from 'react'
-import { MapPin, Mail, PhoneCall, ArrowRight, ChevronDown } from 'lucide-react'
+import { MapPin, PhoneCall, Clock, ArrowRight, ChevronDown, CheckCircle2, AlertCircle } from 'lucide-react'
 import './Contact.css'
 
 export default function ContactInfo() {
   const [isVisible, setIsVisible] = useState(false)
   const [selectedSubject, setSelectedSubject] = useState('')
   const [isOpen, setIsOpen] = useState(false)
+
+  // Form State
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [message, setMessage] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null) // { type: 'success' | 'error', text: '' }
+
   const dropdownRef = useRef(null)
   const contactRef = useRef(null)
 
   const subjects = [
-    'Exterior Paving',
-    'Patio Solutions',
-    'Commercial Project',
-    'Price Inquiry',
-    'Complaints & Feedback',
+    'Hospital & OT Doors',
+    'Hermetic Sliding Doors',
+    'Radiation Shielding Doors',
+    'Surgical Pendants',
+    'Surgical Scrub Sinks',
+    'Motor Control Panels (MCP)',
+    'Wholesale & Bulk Orders',
   ]
 
   useEffect(() => {
@@ -45,6 +56,51 @@ export default function ContactInfo() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          subject: selectedSubject || 'General Inquiry',
+          message,
+        }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || 'Something went wrong. Please try again.')
+      }
+
+      setSubmitStatus({
+        type: 'success',
+        text: data.message || 'Thank you! Your message has been sent successfully.',
+      })
+
+      // Reset form fields
+      setName('')
+      setEmail('')
+      setPhone('')
+      setSelectedSubject('')
+      setMessage('')
+    } catch (err) {
+      setSubmitStatus({
+        type: 'error',
+        text: err.message || 'Unable to submit your message. Please check your connection and try again.',
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
     <div ref={contactRef} className="contact-page-wrapper">
       <div className="contact-cards-container">
@@ -53,29 +109,33 @@ export default function ContactInfo() {
             <div className="card-icon">
               <MapPin size={28} />
             </div>
-            <h3 className="card-title">Our Address</h3>
+            <h3 className="card-title">Factory &amp; Office</h3>
             <p className="card-desc">
-              4517 Washington Ave. Manchester, Kentucky 39495
+              Plot No 77, Sector 58, Adjoining Neelkamal Water Plant, Transport Nagar, Ballabgarh, Faridabad, Haryana 121004
             </p>
           </div>
 
           <div className="contact-info-card highlighted">
             <div className="card-icon">
-              <Mail size={28} />
+              <PhoneCall size={28} />
             </div>
-            <h3 className="card-title">info@example.com</h3>
+            <h3 className="card-title">
+              <a href="tel:+919810730153" style={{ color: 'inherit', textDecoration: 'none' }}>
+                +91 98107 30153
+              </a>
+            </h3>
             <p className="card-desc">
-              Email us anytime for any kind of query.
+              Direct technical assistance &amp; commercial quotations.
             </p>
           </div>
 
           <div className="contact-info-card">
             <div className="card-icon">
-              <PhoneCall size={28} />
+              <Clock size={28} />
             </div>
-            <h3 className="card-title">Hot: +208-666-01112</h3>
+            <h3 className="card-title">Business Hours</h3>
             <p className="card-desc">
-              24/7/365 priority Live Chat and ticketing support.
+              Open · Closes 5:00 PM
             </p>
           </div>
         </div>
@@ -84,8 +144,12 @@ export default function ContactInfo() {
       <div className="contact-map-section">
         <div className="map-embed-wrapper">
           <iframe
-            title="Google Map Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.089339929686!2d89.05573007608758!3d25.435276522015172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fcb92fb4d9696d%3A0x74b18fed6b93e5e5!2sNobabgonj%20National%20garden!5e0!3m2!1sen!2sbd!4v1727839220309!5m2!1sen!2sbd"
+            title="Venus Hospital Door Solutions Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3512.215902872569!2d77.3026491!3d28.322067199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdbeb6a721603%3A0x5caa296006acecb7!2sVenus%20Hospital%20Door%20Solutions!5e0!3m2!1sen!2sin!4v1788849547791!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
@@ -94,13 +158,52 @@ export default function ContactInfo() {
         <div className="contact-form-overlay-container">
           <div className={`contact-form-card ${isVisible ? 'fade-in-form' : ''}`}>
             <h2>Get in Touch</h2>
-            <form onSubmit={(e) => e.preventDefault()}>
+
+            {submitStatus && (
+              <div
+                className={`contact-alert ${
+                  submitStatus.type === 'success'
+                    ? 'contact-alert-success'
+                    : 'contact-alert-error'
+                }`}
+              >
+                {submitStatus.type === 'success' ? (
+                  <CheckCircle2 size={20} />
+                ) : (
+                  <AlertCircle size={20} />
+                )}
+                <span>{submitStatus.text}</span>
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <input type="text" placeholder="Full Name" required />
+                <input
+                  type="text"
+                  placeholder="Full Name *"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
               </div>
 
               <div className="form-group">
-                <input type="email" placeholder="Email Address" required />
+                <input
+                  type="email"
+                  placeholder="Email Address *"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+
+              <div className="form-group">
+                <input
+                  type="tel"
+                  placeholder="Phone Number (e.g. +91 98107 30153)"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
               </div>
 
               <div className="form-group" ref={dropdownRef}>
@@ -110,7 +213,7 @@ export default function ContactInfo() {
                   }`}
                   onClick={() => setIsOpen(!isOpen)}
                 >
-                  <span>{selectedSubject || 'Select Subject'}</span>
+                  <span>{selectedSubject || 'Select Product / Service'}</span>
                   <ChevronDown
                     size={20}
                     className={`select-arrow ${isOpen ? 'rotated' : ''}`}
@@ -140,13 +243,20 @@ export default function ContactInfo() {
               <div className="form-group">
                 <textarea
                   rows="4"
-                  placeholder="Write your message here..."
+                  placeholder="Specify dimensions, leaf type, or project specifications... *"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                   required
                 ></textarea>
               </div>
 
-              <button type="submit" className="theme-btn form-submit-btn">
-                <span>SUBMIT NOW</span>
+              <button
+                type="submit"
+                className="theme-btn form-submit-btn"
+                disabled={isSubmitting}
+                style={{ opacity: isSubmitting ? 0.7 : 1 }}
+              >
+                <span>{isSubmitting ? 'SUBMITTING...' : 'SUBMIT INQUIRY'}</span>
                 <ArrowRight size={20} className="btn-arrow" />
               </button>
             </form>

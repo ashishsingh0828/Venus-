@@ -3,8 +3,9 @@ import {
   Phone,
   Mail,
   MapPin,
+  Clock,
   ArrowRight,
-  Layers,
+  ShieldCheck,
 } from 'lucide-react'
 import './Footer.css'
 
@@ -16,9 +17,9 @@ export default function Footer() {
       <div className="footer-cta-container">
         <div className="footer-cta-box">
           <div className="cta-left">
-            <h3>Ready to Build Your Dream Outdoor Space?</h3>
+            <h3>Equipping Cleanrooms &amp; Operation Theatres?</h3>
             <p>
-              Get in touch with our expert paving consultants for a tailored solution and estimate.
+              Connect with our specialized engineering team for custom hermetic, radiation, and cleanroom door solutions.
             </p>
           </div>
           <div className="cta-right">
@@ -36,17 +37,17 @@ export default function Footer() {
             <div className="footer-col brand-col">
               <div className="brand-header">
                 <div className="brand-logo-icon">
-                  <Layers size={32} />
+                  <ShieldCheck size={32} />
                 </div>
                 <div className="brand-titles">
                   <h2>VENUS</h2>
-                  <span>Floor &amp; Paving Services</span>
+                  <span>Hospital Door Solutions</span>
                 </div>
               </div>
               <p className="brand-paragraph">
-                Venus is dedicated to outdoor paving and flooring craftsmanship. We
-                transform driveways, walkways, and patios with durable, visually
-                appealing solutions built to endure.
+                Venus Hospital Door Solutions engineers high-performance hermetic,
+                radiation shielding, and cleanroom doors ensuring sterility, safety,
+                and precision across medical facilities.
               </p>
               <div className="social-square-list">
                 <a href="#facebook" aria-label="Facebook">
@@ -71,11 +72,12 @@ export default function Footer() {
               <h3 className="widget-header">OUR PRODUCTS</h3>
               <div className="header-divider"></div>
               <ul className="footer-list">
-                <li><Link to="/services">Driveway Paving</Link></li>
-                <li><Link to="/services">Stone Pathways</Link></li>
-                <li><Link to="/services">Patio Pavers</Link></li>
-                <li><Link to="/services">Walkway Solutions</Link></li>
-                <li><Link to="/services">Retaining Walls</Link></li>
+                <li><Link to="/hospital-doors">Hospital &amp; OT Doors</Link></li>
+                <li><Link to="/hermetic-doors">Hermetic Sliding Doors</Link></li>
+                <li><Link to="/radiationshielding-doors">Radiation Shielding Doors</Link></li>
+                <li><Link to="/surgical-pendant">Surgical Pendants</Link></li>
+                <li><Link to="/surgical-scrub">Surgical Scrub Sinks</Link></li>
+                <li><Link to="/motorsliding-doors">Motor Control Panels (MCP)</Link></li>
               </ul>
             </div>
 
@@ -85,15 +87,21 @@ export default function Footer() {
               <ul className="contact-details">
                 <li>
                   <Phone size={18} className="info-icon" />
-                  <a href="tel:+13209876543">+1 (320) 987-6543</a>
+                  <a href="tel:+919810730153">+91 98107 30153</a>
                 </li>
                 <li>
                   <Mail size={18} className="info-icon" />
-                  <a href="mailto:info@venuspaving.com">info@venuspaving.com</a>
+                  <a href="mailto:venushospitaldoorsolutions@gmail.com">Venushospitaldoorsolutions@gmail.com</a>
                 </li>
                 <li>
                   <MapPin size={18} className="info-icon" />
-                  <span>4841 Smith Avenue, Amarillo, Texas 79101</span>
+                  <span>
+                    PLOT NO 77, SECTOR 58, Sec-58, adjoining Neelkamal Water Plant, Transport Nagar, BALLABGARH, Faridabad, Haryana 121004
+                  </span>
+                </li>
+                <li>
+                  <Clock size={18} className="info-icon" />
+                  <span>Open · Closes 5:00 PM</span>
                 </li>
               </ul>
             </div>
@@ -102,7 +110,7 @@ export default function Footer() {
               <h3 className="widget-header">NEWSLETTER</h3>
               <div className="header-divider"></div>
               <p className="newsletter-text">
-                Subscribe to our newsletter for updates, materials catalog, and seasonal offers.
+                Subscribe to our newsletter for technical specs, product updates, and healthcare facility solutions.
               </p>
               <form
                 className="newsletter-form"
@@ -113,7 +121,7 @@ export default function Footer() {
                   placeholder="Your Mail"
                   required
                 />
-                <button type="submit">SEARCH</button>
+                <button type="submit">SUBSCRIBE</button>
               </form>
             </div>
           </div>
@@ -121,8 +129,11 @@ export default function Footer() {
       </div>
 
       <div className="footer-copyright-bar">
-        <div className="footer-inner-container">
-          <p>&copy; Copyrights {currentYear} Venus All Rights Reserved.</p>
+        <div className="footer-inner-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
+          <p style={{ margin: 0 }}>&copy; Copyright {currentYear} Venus Hospital Door Solutions. All Rights Reserved.</p>
+          <Link to="/admin/login" style={{ color: '#8a99ad', textDecoration: 'none', fontSize: '0.85rem' }}>
+            Admin Portal &rarr;
+          </Link>
         </div>
       </div>
     </footer>

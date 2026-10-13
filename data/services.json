@@ -1,0 +1,351 @@
+[
+  {
+    "id": "hospital-ot-doors",
+    "number": "01",
+    "title": "Hospital & OT Doors",
+    "slug": "hospital-doors",
+    "description": "Engineered SS304 and HPL hinged and sliding doors ensuring high hygiene, seamless operation, and acoustic sealing for sterile healthcare spaces.",
+    "image": "/assets/images/services/OT.png",
+    "icon": "DoorOpen",
+    "href": "/hospital-doors",
+    "features": [
+      "SS304 & HPL Construction",
+      "Acoustic & Dust Sealing",
+      "Antimicrobial Surfaces",
+      "Flush Double-Glazed Vision Panels"
+    ],
+    "order": 1,
+    "active": true,
+    "projects": [
+      {
+        "id": "hospital-ot-doors-p1",
+        "name": "Lead Lined Doors",
+        "price": "₹ 65,000/Piece",
+        "image": "/assets/images/Hospital door/leaned.png"
+      },
+      {
+        "id": "hospital-ot-doors-p2",
+        "name": "HPL Hinge Lead Door",
+        "price": "₹ 70,000/Piece",
+        "image": "/assets/images/Hospital door/HPL Hinge Lead Door.png"
+      },
+      {
+        "id": "hospital-ot-doors-p3",
+        "name": "SS304 Hospital Hinged Door",
+        "price": "₹ 60,000/Piece",
+        "image": "/assets/images/Hospital door/SS304 HOSPITAL HINGED DOOR.png"
+      },
+      {
+        "id": "hospital-ot-doors-p4",
+        "name": "SS304 Single Leaf Hinged Door",
+        "price": "₹ 48,000/Piece",
+        "image": "/assets/images/Hospital door/SS304 Single Leaf Hinged Door.png"
+      },
+      {
+        "id": "hospital-ot-doors-p5",
+        "name": "HPL Hermatically Sealed Manual Sliding Lead Lined Door",
+        "price": "₹ 90,000/Piece",
+        "image": "/assets/images/Hospital door/HPL Hermatically Sealed Manual Sliding Lead Lined Door.png"
+      },
+      {
+        "id": "hospital-ot-doors-p6",
+        "name": "SS 304 Hospital Door",
+        "price": "₹ 55,000/Piece",
+        "image": "/assets/images/Hospital door/Ss 304 Hospital Door.png"
+      },
+      {
+        "id": "hospital-ot-doors-p7",
+        "name": "SS304 Lead Single Leaf Hinged Door",
+        "price": "₹ 68,000/Piece",
+        "image": "/assets/images/Hospital door/SS304 Lead Single Leaf Hinged Door.png"
+      },
+      {
+        "id": "hospital-ot-doors-p8",
+        "name": "SS304 Double Leaf Lead Hinged Door",
+        "price": "₹ 95,000/Piece",
+        "image": "/assets/images/Hospital door/SS304 Double Leaf Lead Hinged Door.png"
+      },
+      {
+        "id": "hospital-ot-doors-p9",
+        "name": "Operation Theater Double Doors",
+        "price": "₹ 25,000/Piece",
+        "image": "/assets/images/Hospital door/operation-theater-double-doors.png"
+      }
+    ]
+  },
+  {
+    "id": "hermetic-sliding-doors",
+    "number": "02",
+    "title": "Hermetic Sliding Doors",
+    "slug": "hermetic-doors",
+    "description": "Airtight automated and manual hermetically sealed door units designed to sustain sterile air pressure differentials in operating theaters.",
+    "image": "/assets/images/services/hermetic.png",
+    "icon": "SlidersHorizontal",
+    "href": "/hermetic-doors",
+    "features": [
+      "Airtight Perimeter Gasket Sealing",
+      "Microprocessor Automation & Manual Option",
+      "Touchless Radar & Foot Switch",
+      "Sterile Pressure Differential Preservation"
+    ],
+    "order": 2,
+    "active": true,
+    "projects": [
+      {
+        "id": "hermetic-sliding-doors-p1",
+        "name": "Lead Lined Doors",
+        "price": "₹ 65,000/Piece",
+        "image": "/assets/images/Hospital door/leaned.png"
+      },
+      {
+        "id": "hermetic-sliding-doors-p2",
+        "name": "HPL Hinge Lead Door",
+        "price": "₹ 70,000/Piece",
+        "image": "/assets/images/Hospital door/HPL Hinge Lead Door.png"
+      },
+      {
+        "id": "hermetic-sliding-doors-p3",
+        "name": "SS304 Hospital Hinged Door",
+        "price": "₹ 60,000/Piece",
+        "image": "/assets/images/Hospital door/SS304 HOSPITAL HINGED DOOR.png"
+      },
+      {
+        "id": "hermetic-sliding-doors-p4",
+        "name": "SS304 Single Leaf Hinged Door",
+        "price": "₹ 48,000/Piece",
+        "image": "/assets/images/Hospital door/SS304 Single Leaf Hinged Door.png"
+      },
+      {
+        "id": "hermetic-sliding-doors-p5",
+        "name": "HPL Hermatically Sealed Manual Sliding Lead Lined Door",
+        "price": "₹ 90,000/Piece",
+        "image": "/assets/images/Hospital door/HPL Hermatically Sealed Manual Sliding Lead Lined Door.png"
+      },
+      {
+        "id": "hermetic-sliding-doors-p6",
+        "name": "SS 304 Hospital Door",
+        "price": "₹ 55,000/Piece",
+        "image": "/assets/images/Hospital door/Ss 304 Hospital Door.png"
+      },
+      {
+        "id": "hermetic-sliding-doors-p7",
+        "name": "SS304 Lead Single Leaf Hinged Door",
+        "price": "₹ 68,000/Piece",
+        "image": "/assets/images/Hospital door/SS304 Lead Single Leaf Hinged Door.png"
+      },
+      {
+        "id": "hermetic-sliding-doors-p8",
+        "name": "SS304 Double Leaf Lead Hinged Door",
+        "price": "₹ 95,000/Piece",
+        "image": "/assets/images/Hospital door/SS304 Double Leaf Lead Hinged Door.png"
+      },
+      {
+        "id": "hermetic-sliding-doors-p9",
+        "name": "Operation Theater Double Doors",
+        "price": "₹ 25,000/Piece",
+        "image": "/assets/images/Hospital door/operation-theater-double-doors.png"
+      }
+    ]
+  },
+  {
+    "id": "radiation-shielding-doors",
+    "number": "03",
+    "title": "Radiation Shielding Doors",
+    "slug": "radiationshielding-doors",
+    "description": "Lead-lined SS304 and HPL radiation barrier doors providing maximum safety and shielding for X-ray rooms and radiology departments.",
+    "image": "/assets/images/services/radiationservices.png",
+    "icon": "ShieldCheck",
+    "href": "/radiationshielding-doors",
+    "features": [
+      "Pure Lead Core (1.0mm - 4.0mm+ Pb Equiv.)",
+      "Heavy Duty SS Ball-Bearing Hinges",
+      "Radiation Shielded Vision Glass",
+      "AERB & Diagnostic Lab Compliance"
+    ],
+    "order": 3,
+    "active": true,
+    "projects": [
+      {
+        "id": "radiation-shielding-doors-p1",
+        "name": "Lead Lined Doors",
+        "price": "₹ 65,000/Piece",
+        "image": "/assets/images/Hospital door/leaned.png"
+      },
+      {
+        "id": "radiation-shielding-doors-p2",
+        "name": "HPL Hinge Lead Door",
+        "price": "₹ 70,000/Piece",
+        "image": "/assets/images/Hospital door/HPL Hinge Lead Door.png"
+      },
+      {
+        "id": "radiation-shielding-doors-p3",
+        "name": "SS304 Hospital Hinged Door",
+        "price": "₹ 60,000/Piece",
+        "image": "/assets/images/Hospital door/SS304 HOSPITAL HINGED DOOR.png"
+      },
+      {
+        "id": "radiation-shielding-doors-p4",
+        "name": "SS304 Single Leaf Hinged Door",
+        "price": "₹ 48,000/Piece",
+        "image": "/assets/images/Hospital door/SS304 Single Leaf Hinged Door.png"
+      },
+      {
+        "id": "radiation-shielding-doors-p5",
+        "name": "HPL Hermatically Sealed Manual Sliding Lead Lined Door",
+        "price": "₹ 90,000/Piece",
+        "image": "/assets/images/Hospital door/HPL Hermatically Sealed Manual Sliding Lead Lined Door.png"
+      },
+      {
+        "id": "radiation-shielding-doors-p6",
+        "name": "SS 304 Hospital Door",
+        "price": "₹ 55,000/Piece",
+        "image": "/assets/images/Hospital door/Ss 304 Hospital Door.png"
+      },
+      {
+        "id": "radiation-shielding-doors-p7",
+        "name": "SS304 Lead Single Leaf Hinged Door",
+        "price": "₹ 68,000/Piece",
+        "image": "/assets/images/Hospital door/SS304 Lead Single Leaf Hinged Door.png"
+      },
+      {
+        "id": "radiation-shielding-doors-p8",
+        "name": "SS304 Double Leaf Lead Hinged Door",
+        "price": "₹ 95,000/Piece",
+        "image": "/assets/images/Hospital door/SS304 Double Leaf Lead Hinged Door.png"
+      },
+      {
+        "id": "radiation-shielding-doors-p9",
+        "name": "Operation Theater Double Doors",
+        "price": "₹ 25,000/Piece",
+        "image": "/assets/images/Hospital door/operation-theater-double-doors.png"
+      }
+    ]
+  },
+  {
+    "id": "surgical-pendants",
+    "number": "04",
+    "title": "Surgical Pendants",
+    "slug": "surgical-pendant",
+    "description": "Ceiling-mounted single and double arm surgical and anesthesia pendants designed for clutter-free utility and gas management.",
+    "image": "/assets/images/services/pendant.png",
+    "icon": "Activity",
+    "href": "/surgical-pendant",
+    "features": [
+      "Ceiling Structural Mounting System",
+      "Medical Gas Terminal Units (O2, N2O, Air, Vac)",
+      "Multi-Socket High Voltage Isolations",
+      "Dual Articulated 330° Smooth Rotation"
+    ],
+    "order": 4,
+    "active": true,
+    "projects": [
+      {
+        "id": "surgical-pendants-p1",
+        "name": "Double Arm Pendant",
+        "price": "Get Latest Price",
+        "image": "/assets/images/Surgical Pendant/Double Arm Pendant.png"
+      },
+      {
+        "id": "surgical-pendants-p2",
+        "name": "Single Arm Surgical Pendant",
+        "price": "₹ 50,000/Piece",
+        "image": "/assets/images/Surgical Pendant/Single Arm Surgical Pendant.png"
+      },
+      {
+        "id": "surgical-pendants-p3",
+        "name": "Anesthesia Straight Pendant",
+        "price": "₹ 38,000/Piece",
+        "image": "/assets/images/Surgical Pendant/anesthesia-straight-pendant.png"
+      },
+      {
+        "id": "surgical-pendants-p4",
+        "name": "Single Arm Surgical Pendant (Compact)",
+        "price": "Get Latest Price",
+        "image": "/assets/images/Surgical Pendant/Single Arm Surgical Pendant (2).png"
+      },
+      {
+        "id": "surgical-pendants-p5",
+        "name": "Hospital Surgical Pendant",
+        "price": "Get Latest Price",
+        "image": "/assets/images/Surgical Pendant/Hospital-surgical-pendant.png"
+      }
+    ]
+  },
+  {
+    "id": "surgical-scrub-sinks",
+    "number": "05",
+    "title": "Surgical Scrub Sinks",
+    "slug": "surgical-scrub",
+    "description": "Heavy-duty SS304 surgical scrub stations featuring hands-free foot controls and sensors for contamination-free pre-op hygiene.",
+    "image": "/assets/images/services/scrub.png",
+    "icon": "Droplets",
+    "href": "/surgical-scrub",
+    "features": [
+      "High Grade 1.5mm SS304 Matte Finish",
+      "Dual Knee/Foot & Infrared Sensor Taps",
+      "Thermostatic Water Temperature Mixer",
+      "Automatic Soap/Disinfectant Dispenser"
+    ],
+    "order": 5,
+    "active": true,
+    "projects": [
+      {
+        "id": "surgical-scrub-sinks-p1",
+        "name": "Foot Operated Automatic Surgical Scrub Sink For Hospital",
+        "price": "₹ 50,000/Piece",
+        "image": "/assets/images/Surgical Scrub/Foot Operated Automatic Surgical Scrub Sink For Hospital.png"
+      },
+      {
+        "id": "surgical-scrub-sinks-p2",
+        "name": "Stainless Steel Surgical Scrub Sink Station",
+        "price": "Get Latest Price",
+        "image": "/assets/images/Surgical Scrub/stainless-steel-surgical-scrub-sink-station.png"
+      }
+    ],
+    "updatedAt": "2026-10-13T10:43:33.719Z"
+  },
+  {
+    "id": "motor-control-panels",
+    "number": "06",
+    "title": "Motor Control Panels",
+    "slug": "motorsliding-doors",
+    "description": "Precision-built electrical motor control panels and hospital automation systems engineered for reliable performance and safety.",
+    "image": "/assets/images/services/motorservice.png",
+    "icon": "Cpu",
+    "href": "/motorsliding-doors",
+    "features": [
+      "Intelligent Microprocessor Controller",
+      "Brushless DC Servo Motor Integration",
+      "Integrated Battery Backup System",
+      "Fire Alarm & Emergency Override Trigger"
+    ],
+    "order": 6,
+    "active": true,
+    "projects": [
+      {
+        "id": "motor-control-panels-p1",
+        "name": "Operation Theater SS Door",
+        "price": "₹ 50,000/Piece",
+        "image": "/assets/images/Autoslides/operation-theater-sliding-doors.png"
+      },
+      {
+        "id": "motor-control-panels-p2",
+        "name": "Hospital Automatic Hermetic OT Door",
+        "price": "₹ 1,45,000/Piece",
+        "image": "/assets/images/Autoslides/automatic-hermetic-sliding-door.png"
+      },
+      {
+        "id": "motor-control-panels-p3",
+        "name": "Hospital Hermetically Sealed OT Door",
+        "price": "₹ 51,000/Piece",
+        "image": "/assets/images/Autoslides/hermetically-sealed-sliding-door.png"
+      },
+      {
+        "id": "motor-control-panels-p4",
+        "name": "Hospital Hermetically Sealed Sliding Door",
+        "price": "₹ 55,000/Piece",
+        "image": "/assets/images/Autoslides/hermetically-sealed-sliding-hospital-door.png"
+      }
+    ]
+  }
+]

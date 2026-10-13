@@ -29,8 +29,8 @@ export default function AboutHome() {
     if (!isVisible) return
 
     let start = 0
-    const end = 10
-    const stepTime = 120
+    const end = 4
+    const stepTime = 180
 
     const timer = setInterval(() => {
       start += 1
@@ -47,8 +47,8 @@ export default function AboutHome() {
         <div className={`about-image-col ${isVisible ? 'slide-up' : ''}`}>
           <div className="about-img-box">
             <img
-              src="https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=1200&q=80"
-              alt="Paving Craftsmanship"
+              src="/assets/images/Profile/about.png"
+              alt="Venus Hospital Door Solutions Manufacturing"
               className="featured-image"
             />
             <div className="count-box">
@@ -56,7 +56,7 @@ export default function AboutHome() {
                 <span className="counter-number">{count}</span>+
               </h2>
               <p>
-                years of <br /> experience
+                years of <br /> excellence
               </p>
             </div>
           </div>
@@ -64,14 +64,14 @@ export default function AboutHome() {
 
         <div className={`about-content-col ${isVisible ? 'slide-up-delay' : ''}`}>
           <div className="about-content">
-            <span className="sub-title">About Us</span>
-            <h2 className="title">Why Choose Us</h2>
+            <span className="sub-title">About Venus Hospital Door Solutions</span>
+            <h2 className="title">Precision Engineering for Critical Healthcare Spaces</h2>
 
             <p className="desc">
-              We are a professional outdoor paving company dedicated to transforming
-              driveways, patios, and outdoor spaces with high-quality long-lasting
-              results, functional, and visually appealing paving solutions tailored to
-              each client’s needs.
+              Established in 2022 in Faridabad, Haryana, Venus Hospital Door Solutions
+              is a specialized manufacturer and supplier of high-performance Hospital Doors,
+              Hermetic Operation Theater Doors, Automatic Sliding Doors, Motor Control Panels,
+              and Surgical Pendants engineered to maintain pristine cleanroom standards.
             </p>
 
             <div className="feature-columns">
@@ -80,13 +80,13 @@ export default function AboutHome() {
                   <span className="icon-circle">
                     <ArrowUpRight size={16} />
                   </span>
-                  <span>Expert Craftsmanship</span>
+                  <span>SS304 &amp; HPL Cleanroom Finish</span>
                 </li>
                 <li>
                   <span className="icon-circle">
                     <ArrowUpRight size={16} />
                   </span>
-                  <span>Reliable &amp; On-Time Service</span>
+                  <span>Hermetic &amp; Radiation Shielding</span>
                 </li>
               </ul>
 
@@ -95,13 +95,13 @@ export default function AboutHome() {
                   <span className="icon-circle">
                     <ArrowUpRight size={16} />
                   </span>
-                  <span>Premium Quality Materials</span>
+                  <span>In-House Factory Manufacturing</span>
                 </li>
                 <li>
                   <span className="icon-circle">
                     <ArrowUpRight size={16} />
                   </span>
-                  <span>Durable &amp; Long-Lasting Results</span>
+                  <span>Custom Healthcare Engineering</span>
                 </li>
               </ul>
             </div>
@@ -116,9 +116,9 @@ export default function AboutHome() {
                   <PhoneCall size={20} />
                 </div>
                 <div className="call-text">
-                  <span className="label">Call For Details</span>
-                  <a href="tel:+8801234567980" className="number">
-                    +880 1234 567980
+                  <span className="label">Call For Inquiries</span>
+                  <a href="tel:+919876543210" className="number">
+                    +91 98765 43210
                   </a>
                 </div>
               </div>

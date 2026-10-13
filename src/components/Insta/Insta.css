@@ -1,24 +1,7 @@
-/*
-  HeroWithGallery.css
-  -------------------
-  Reads theme tokens from :root (index.css), with fallbacks:
-
-  --primary        warm amber accent   (fallback #e0942f)
-  --primary-dark   deeper amber        (fallback #c67e1f)
-  --secondary      deep slate          (fallback #1c1a17)
-  --font-heading   display typeface    (fallback 'Fraunces', Georgia, serif)
-  --font-body      UI / body typeface  (fallback 'Inter', system-ui, sans-serif)
-
-  No external texture image is used — the stone/marble backdrop is a pure
-  CSS approximation built from layered gradients on brand tokens.
-
-  Requires the `swiper` package: npm install swiper
-*/
-
 .hero-gallery {
-  --_primary: var(--primary, #e0942f);
-  --_primary-dark: var(--primary-dark, #c67e1f);
-  --_secondary: var(--secondary, #1c1a17);
+  --_primary: var(--primary, #b3161f);
+  --_primary-dark: var(--primary-dark, #8c1017);
+  --_secondary: var(--secondary, #1a1a1a);
   --_font-heading: var(--font-heading, "Fraunces", Georgia, serif);
   --_font-body: var(--font-body, "Inter", system-ui, sans-serif);
   --_bleed: clamp(72px, 8vw, 96px);
@@ -26,8 +9,6 @@
   position: relative;
   padding-top: clamp(32px, 5vw, 56px);
 }
-
-/* ---------------- Banner container / box ---------------- */
 
 .hero-gallery__container {
   position: relative;
@@ -46,10 +27,9 @@
   background: linear-gradient(135deg, var(--_primary) 0%, var(--_primary-dark) 100%);
   padding: clamp(32px, 4.5vw, 56px) clamp(28px, 5vw, 64px);
   min-height: 340px;
-  overflow: visible; /* lets the image + ring bleed past the box edges */
+  overflow: visible;
 }
 
-/* Decorative ring, top right */
 .hero-gallery__ring {
   position: absolute;
   top: clamp(-36px, -4vw, -20px);
@@ -64,8 +44,6 @@
   z-index: 1;
   pointer-events: none;
 }
-
-/* ---------------- Media (image + bleed) ---------------- */
 
 .hero-gallery__media {
   position: relative;
@@ -97,8 +75,6 @@
   margin-bottom: calc(-1 * var(--_bleed));
   filter: drop-shadow(0 24px 32px rgba(0, 0, 0, 0.28));
 }
-
-/* ---------------- Banner content ---------------- */
 
 .hero-gallery__content {
   color: #fff;
@@ -181,11 +157,10 @@
   transform: translateX(4px);
 }
 
-
 .hero-gallery__marble {
   position: relative;
   z-index: 1;
- margin-top: calc(-1 * var(--_bleed));
+  margin-top: calc(-1 * var(--_bleed));
   padding-top: 288px;
   background:
     radial-gradient(ellipse 60% 40% at 15% 20%, rgba(255, 255, 255, 0.07), transparent 60%),
@@ -226,7 +201,6 @@
   transform: scale(1.08);
 }
 
-/* Diagonal wipe overlay — grows from the top-left corner to cover the tile */
 .hero-gallery__tile-overlay {
   position: absolute;
   inset: 0;
@@ -262,8 +236,6 @@
     display: none;
   }
 }
-
-/* ---------------- Responsive ---------------- */
 
 @media (max-width: 900px) {
   .hero-gallery__box {

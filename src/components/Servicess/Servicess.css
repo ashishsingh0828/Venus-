@@ -1,14 +1,15 @@
 :root {
-  --florem-accent: #c7844f;
-  --florem-dark: #1b1f24;
-  --florem-gray-text: #71717a;
-  --florem-stroke-default: #d9d4cc;
+  --florem-accent: #b3161f;
+  --florem-accent-dark: #8c1017;
+  --florem-dark: #1a1a1a;
+  --florem-gray-text: #6b6b6b;
+  --florem-stroke-default: #d4d4d4;
   --florem-bg-card: #ffffff;
 }
 
 .service-section {
   padding: 60px 20px;
-  background-color: #fcfbf9;
+  background-color: #ffffff;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
@@ -23,27 +24,24 @@
   gap: 24px;
 }
 
-/* ---------------- Card Base ---------------- */
 .servicess-card {
   position: relative;
   background-color: var(--florem-bg-card);
-  min-height: 340px; 
+  min-height: 340px;
   border-radius: 4px;
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   display: flex;
   flex-direction: column;
 }
 
-/* Subtle, gentle lift */
 .servicess-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
 }
 
-/* ---------------- Overlay: Slow, smooth downward slide ---------------- */
 .servicess-card__bg {
   position: absolute;
   top: 0;
@@ -54,7 +52,6 @@
   background-position: center;
   transform: translateY(-100%);
   opacity: 0;
-  /* Slower, graceful glide down */
   transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s ease;
   z-index: 1;
 }
@@ -64,8 +61,8 @@
   height: 100%;
   background: linear-gradient(
     180deg,
-    rgba(27, 31, 36, 0.88) 0%,
-    rgba(18, 20, 24, 0.94) 100%
+    rgba(26, 26, 26, 0.9) 0%,
+    rgba(179, 22, 31, 0.85) 100%
   );
 }
 
@@ -74,18 +71,16 @@
   opacity: 1;
 }
 
-/* ---------------- Card Content ---------------- */
 .servicess-card__content {
   position: relative;
   z-index: 2;
-  padding: 30px 28px; /* Tighter padding */
+  padding: 30px 28px;
   display: flex;
   flex-direction: column;
   height: 100%;
   box-sizing: border-box;
 }
 
-/* Top Area */
 .servicess-card__top {
   display: flex;
   align-items: center;
@@ -94,19 +89,18 @@
   margin-bottom: 16px;
 }
 
-/* Number: Hollow inside, ONLY stroke/outline changes color */
 .servicess-card__number {
   font-size: 42px;
   font-weight: 700;
   line-height: 1;
-  color: transparent !important; /* Stays hollow */
+  color: transparent !important;
   -webkit-text-fill-color: transparent !important;
   -webkit-text-stroke: 1.5px var(--florem-stroke-default);
   transition: -webkit-text-stroke 0.5s ease;
 }
 
 .servicess-card:hover .servicess-card__number {
-  -webkit-text-stroke: 1.5px var(--florem-accent); /* Only outline changes color */
+  -webkit-text-stroke: 1.5px #ffffff;
 }
 
 .servicess-card__dot {
@@ -134,7 +128,6 @@
   transform: scale(1);
 }
 
-/* Title */
 .servicess-card__title {
   margin: 0 0 12px 0;
   font-size: 21px;
@@ -152,20 +145,18 @@
   color: #ffffff;
 }
 
-/* Divider Line */
 .servicess-card__divider {
   width: 100%;
   height: 1px;
-  background-color: #f1ede8;
+  background-color: #ececec;
   margin-bottom: 14px;
   transition: background-color 0.4s ease;
 }
 
 .servicess-card:hover .servicess-card__divider {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.16);
 }
 
-/* Description Text */
 .servicess-card__text {
   font-size: 14px;
   line-height: 1.6;
@@ -175,10 +166,9 @@
 }
 
 .servicess-card:hover .servicess-card__text {
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.8);
 }
 
-/* Icon */
 .servicess-card__icon {
   margin-top: auto;
   color: var(--florem-accent);
@@ -192,7 +182,6 @@
   transform: translateY(-2px);
 }
 
-/* ---------------- Responsive Breakpoints ---------------- */
 @media (max-width: 1024px) {
   .services-grid {
     grid-template-columns: repeat(2, 1fr);

@@ -11,6 +11,13 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
+dist.zip
+
+# Runtime data (created by server.js)
+data/admin.json
+data/contacts.json
+public/uploads
 
 # Editor directories and files
 .vscode/*

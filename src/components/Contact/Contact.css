@@ -386,3 +386,27 @@
     justify-content: center;
   }
 }
+
+.contact-alert {
+  padding: 14px 18px;
+  border-radius: var(--radius-md, 10px);
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 15px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-alert-success {
+  background-color: #f0fdf4;
+  color: #15803d;
+  border: 1.5px solid #86efac;
+}
+
+.contact-alert-error {
+  background-color: #fef2f2;
+  color: #b91c1c;
+  border: 1.5px solid #fca5a5;
+}

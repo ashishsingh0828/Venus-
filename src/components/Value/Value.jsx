@@ -1,35 +1,33 @@
 import { ShieldCheck, Flame, Repeat2, HeartHandshake } from "lucide-react";
 import "./Value.css";
 
-
-
 const VALUES = [
   {
     id: 1,
-    title: "Integrity",
+    title: "Clinical Hygiene & Safety",
     description:
-      "There are many variations of passages of Lorem Ipsum available,xyz there isn't anything but the",
+      "Upholding strict healthcare cleanroom tolerances, airtight perimeter sealing, and certified radiation attenuation.",
     icon: ShieldCheck,
   },
   {
     id: 2,
-    title: "Passion",
+    title: "Engineering Precision",
     description:
-      "There are many variations of passages of Lorem Ipsum available,xyz there isn't anything but the",
+      "Manufacturing heavy-duty SS304 and HPL door solutions engineered to endure high-frequency hospital operation.",
     icon: Flame,
   },
   {
     id: 3,
-    title: "Adaptability",
+    title: "Tailored Adaptability",
     description:
-      "There are many variations of passages of Lorem Ipsum available,xyz there isn't anything but the",
+      "Customizing single, double, unequal leaf dimensions and control panel integrations for specific modular OT setups.",
     icon: Repeat2,
   },
   {
     id: 4,
-    title: "Care",
+    title: "Healthcare Commitment",
     description:
-      "There are many variations of passages of Lorem Ipsum available,xyz there isn't anything but the",
+      "Delivering prompt on-site support, reliable deliveries, and dependable products built to protect doctors and patients.",
     icon: HeartHandshake,
   },
 ];
@@ -38,7 +36,7 @@ export default function ValuesSection() {
   return (
     <section className="values-section">
       <div className="values-section__inner">
-        <h2 className="values-section__heading">Our Values</h2>
+        <h2 className="values-section__heading">Our Core Values</h2>
 
         <div className="values-grid">
           {VALUES.map(({ id, title, description, icon: Icon }, i) => (

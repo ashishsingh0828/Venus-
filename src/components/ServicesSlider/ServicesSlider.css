@@ -1,26 +1,9 @@
-/*
-  ServicesSlider.css
-  ------------------
-  Reads theme tokens from :root (index.css), with fallbacks:
-
-  --primary        warm amber accent      (fallback #e0942f)
-  --primary-dark   deeper amber, hover     (fallback #c67e1f)
-  --secondary      deep slate              (fallback #1c1a17)
-  --bg-surface     section background      (fallback #faf6ef)
-  --text-light     light text (on dark)    (fallback #f3ede0)
-  --text-muted     muted secondary text    (fallback #8a8072)
-  --font-heading   display typeface        (fallback 'Fraunces', Georgia, serif)
-  --font-body      UI / body typeface      (fallback 'Inter', system-ui, sans-serif)
-
-  Requires the `swiper` package: npm install swiper
-*/
-
 .services-slider {
-  --_primary: var(--primary, #e0942f);
-  --_primary-dark: var(--primary-dark, #c67e1f);
-  --_secondary: var(--secondary, #1c1a17);
-  --_surface: var(--bg-surface, #faf6ef);
-  --_text-muted: var(--text-muted, #8a8072);
+  --_primary: var(--primary, #b3161f);
+  --_primary-dark: var(--primary-dark, #8c1017);
+  --_secondary: var(--secondary, #1a1a1a);
+  --_surface: var(--bg-surface, #ffffff);
+  --_text-muted: var(--text-muted, #6b6b6b);
   --_font-heading: var(--font-heading, "Fraunces", Georgia, serif);
   --_font-body: var(--font-body, "Inter", system-ui, sans-serif);
 
@@ -35,8 +18,6 @@
   margin: 0 auto;
   padding: 0 clamp(20px, 5vw, 64px);
 }
-
-/* ---------------- Header row ---------------- */
 
 .services-slider__header {
   display: flex;
@@ -71,8 +52,6 @@
   color: var(--_secondary);
 }
 
-/* ---------------- Controls: diamond pagination + arrows ---------------- */
-
 .services-slider__controls {
   display: flex;
   align-items: center;
@@ -85,13 +64,12 @@
   gap: 10px;
 }
 
-/* Swiper injects spans with these classes into .services-slider__pagination */
 .swiper-pagination-bullet.services-slider__dot {
   width: 8px;
   height: 8px;
   margin: 0;
   border-radius: 2px;
-  background: color-mix(in srgb, var(--_secondary) 55%, transparent);
+  background: color-mix(in srgb, var(--_secondary) 45%, transparent);
   opacity: 1;
   transform: rotate(45deg);
   cursor: pointer;
@@ -119,7 +97,7 @@
   width: 42px;
   height: 42px;
   border-radius: 0;
-  border: 1px solid color-mix(in srgb, var(--_secondary) 22%, transparent);
+  border: 1px solid color-mix(in srgb, var(--_secondary) 20%, transparent);
   background: transparent;
   color: var(--_secondary);
   cursor: pointer;
@@ -143,11 +121,9 @@
 
 .services-slider__arrow.swiper-button-disabled:hover {
   background: transparent;
-  border-color: color-mix(in srgb, var(--_secondary) 22%, transparent);
+  border-color: color-mix(in srgb, var(--_secondary) 20%, transparent);
   color: var(--_secondary);
 }
-
-/* ---------------- Swiper track ---------------- */
 
 .services-slider__swiper {
   overflow: visible;
@@ -156,8 +132,6 @@
 .services-slider__swiper .swiper-wrapper {
   align-items: stretch;
 }
-
-/* ---------------- Service card ---------------- */
 
 .service-card {
   position: relative;
@@ -188,9 +162,9 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(15, 12, 8, 0) 45%,
-    rgba(15, 12, 8, 0.15) 70%,
-    rgba(15, 12, 8, 0.55) 100%
+    rgba(10, 9, 8, 0) 45%,
+    rgba(10, 9, 8, 0.18) 70%,
+    rgba(10, 9, 8, 0.6) 100%
   );
   transition: opacity 300ms ease;
   pointer-events: none;
@@ -199,8 +173,6 @@
 .service-card:hover .service-card__scrim {
   opacity: 0.85;
 }
-
-/* Icon badge */
 
 .service-card__badge {
   position: absolute;
@@ -222,8 +194,6 @@
   color: #fff;
   transform: translateY(-2px);
 }
-
-/* Hover-reveal panel */
 
 .service-card__panel {
   position: absolute;
@@ -284,8 +254,6 @@
   transform: rotate(45deg);
 }
 
-/* ---------------- Touch fallback: no hover, so keep panel visible ---------------- */
-
 @media (hover: none) {
   .service-card__panel {
     transform: translateY(0);
@@ -309,8 +277,6 @@
     overflow: hidden;
   }
 }
-
-/* ---------------- Responsive ---------------- */
 
 @media (max-width: 719px) {
   .services-slider__header {

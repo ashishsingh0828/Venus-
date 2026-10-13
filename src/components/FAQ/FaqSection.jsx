@@ -2,37 +2,36 @@ import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 import "./FaqSection.css";
 
-
 const FAQS = [
   {
     id: 1,
-    question: "Which Kinds Of Tiles Can You Get From A Tile Company?",
+    question: "What types of hospital and OT doors do you manufacture?",
     answer:
-      "There are many variations of passages of Lorem Ipsum available, lore xyz there isn't anything but the majority have suffered alteration in some form, lor by ipsu injected humour,",
+      "We manufacture SS304 hospital hinged doors, HPL single and double leaf doors, hermetically sealed sliding doors, unequal leaf hinged doors, and fire-rated PCGI cleanroom doors engineered for sterile healthcare facilities.",
   },
   {
     id: 2,
-    question: "What Is The Best Way To Select Tiles For My Project?",
+    question: "Do you supply lead-lined radiation shielding doors?",
     answer:
-      "Consider the room's traffic, moisture exposure, and existing finishes first, then narrow your options down by size, texture, and maintenance before choosing a colour or pattern.",
+      "Yes. We specialize in radiation protection solutions including lead-lined SS304 hinged doors, HPL hinge lead doors, and hermetically sealed manual sliding lead-lined doors tailored for X-ray, CT scan, and radiology suites.",
   },
   {
     id: 3,
-    question: "Exist Any Options for Eco-Friendly Tile?",
+    question: "How do hermetically sealed doors ensure sterile OT conditions?",
     answer:
-      "Yes — recycled porcelain, reclaimed stone, and low-fire ceramic lines all cut embodied carbon while holding up to the same wear as standard tile.",
+      "Our hermetic doors feature heavy-duty perimeter silicone gaskets and precision track drops that create an airtight barrier upon closing, sustaining positive/negative pressure differentials and preventing airborne contamination.",
   },
   {
     id: 4,
-    question: "Are There Any Choices for Eco-Friendly Tile?",
+    question: "What configurations are available for surgical scrub sinks and pendants?",
     answer:
-      "Our eco range includes recycled glass mosaics and clay bodies fired at lower temperatures, both certified against major sustainability standards.",
+      "We manufacture hands-free foot-operated automatic surgical scrub sinks and SS304 scrub stations, alongside single arm, double arm, and anesthesia straight ceiling pendants with integrated medical gas and power outlets.",
   },
   {
     id: 5,
-    question: "There Any Choices for Eco-Friendly Tile?",
+    question: "Do you provide custom fabrication and motor control panels (MCP)?",
     answer:
-      "Ask your project consultant for the current eco-friendly catalogue — availability varies by region and finish.",
+      "Yes, as an OEM manufacturer based in Faridabad, Haryana, we provide custom sizing, hardware integration, and dedicated Motor Control Panels (MCP) engineered for hospital automation and automated sliding door systems.",
   },
 ];
 
@@ -69,15 +68,14 @@ export default function FaqSection() {
           </div>
 
           <h2 className="faq-section__heading">
-            What Are The Most
+            Frequently Asked
             <br />
-            Common Questions?
+            Questions
           </h2>
 
           <p className="faq-section__lede">
-            There are many variations of passages of Lorem Ipsum available,lore xyz
-            there isn&rsquo;t anything but the majority have suffered alteration in some
-            form,lor by ipsu injected humour,
+            Explore technical details and specifications regarding our hospital doors,
+            cleanroom systems, radiation barriers, and operation theater infrastructure.
           </p>
 
           <div className="faq-stat-card">
@@ -86,11 +84,11 @@ export default function FaqSection() {
             </span>
             <div className="faq-stat-card__body">
               <p className="faq-stat-card__figure">
-                <span className="faq-stat-card__number">5K+</span> Project Complete
+                <span className="faq-stat-card__number">500+</span> OT Doors Delivered
               </p>
               <p className="faq-stat-card__text">
-                There are many variations a of passages of a Lorem Ipsum
-                available,lore xyz there isn&rsquo;t anything but the majority
+                Supplying verified medical entry systems and sterile infrastructure 
+                to top hospitals and healthcare centers across India.
               </p>
             </div>
           </div>

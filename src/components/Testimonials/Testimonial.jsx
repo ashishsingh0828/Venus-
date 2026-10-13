@@ -10,39 +10,39 @@ import "./Testimonial.css";
 const TESTIMONIALS = [
   {
     id: 1,
-    name: "Guy Hawkins",
-    role: "Property Owner",
+    name: "Dr. Arvind Mehta",
+    role: "OT In-Charge & Surgeon",
     rating: 5,
     avatar:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=160&h=160&fit=crop&crop=faces",
+      "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=160&h=160&fit=crop&crop=faces",
     image:
-      "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=900&h=1000&fit=crop",
+      "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=900&h=1000&fit=crop",
     quote:
-      "Venus Paving transformed our uneven gravel driveway into an immaculate cobblestone entrance. Their attention to grading and stone alignment was exceptional.",
+      "Venus Hospital Door Solutions installed hermetically sealed sliding doors across our surgical suites. The airtight performance, seamless flush frames, and silent automation have significantly improved our OT sterile containment.",
   },
   {
     id: 2,
-    name: "Courtney Henry",
-    role: "Landscape Consultant",
+    name: "Rajesh Kulkarni",
+    role: "Hospital Infrastructure Consultant",
     rating: 5,
     avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=160&h=160&fit=crop&crop=faces",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=160&h=160&fit=crop&crop=faces",
     image:
-      "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=900&h=1000&fit=crop",
+      "/assets/images/services/hermetic.png",
     quote:
-      "The crew walked us through every phase of the patio stone selection with genuine patience and skill. What used to be an unruly lawn is now our favorite living area.",
+      "Their custom SS304 lead-lined radiation doors for our radiology wing exceeded inspection standards. Excellent fabrication quality, timely delivery from their Faridabad plant, and precise on-site subframe alignment.",
   },
   {
     id: 3,
-    name: "Robert Fox",
-    role: "Site Manager",
+    name: "Vikram Singhania",
+    role: "Biomedical Project Director",
     rating: 5,
     avatar:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=160&h=160&fit=crop&crop=faces",
     image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&h=1000&fit=crop",
+      "/assets/images/services/motorservice.png",
     quote:
-      "Clean stonework, honest quotes, and they finished the retaining walls ahead of schedule. Rare to find a hardscaping crew this reliable and detail-oriented.",
+      "From dual-arm surgical ceiling pendants to automatic foot-operated scrub sinks and motor control panels, Venus delivered durable healthcare equipment that easily withstands demanding 24/7 hospital duty cycles.",
   },
 ];
 
@@ -62,9 +62,9 @@ export default function Testimonial() {
 
           <div className="testimonials-section__heading-row">
             <h2 className="testimonials-section__heading">
-              What People Are Saying
+              Trusted by Healthcare
               <br />
-              About Venus Paving
+              &amp; Hospital Specialists
             </h2>
 
             <div className="testimonials-section__arrows">
