@@ -1,0 +1,159 @@
+[
+  {
+    "id": "aiims-modular-ot-hermetic-doors",
+    "slug": "aiims-modular-ot-hermetic-doors",
+    "title": "AIIMS Modular Operation Theatre Hermetic Doors",
+    "category": "Hermetic Sliding Doors",
+    "client": "All India Institute of Medical Sciences (AIIMS)",
+    "location": "New Delhi, India",
+    "year": "2024",
+    "scope": "Design, fabrication, and installation of 16 motorized hermetically sealed sliding doors with touchless infrared sensors and microprocessor interlock systems.",
+    "image": "/assets/images/Autoslides/automatic-hermetic-sliding-door.png",
+    "gallery": [
+      "/assets/images/Autoslides/automatic-hermetic-sliding-door.png",
+      "/assets/images/Autoslides/hermetically-sealed-sliding-door.png",
+      "/assets/images/Autoslides/hermetically-sealed-sliding-hospital-door.png"
+    ],
+    "description": "Custom engineered for the Advanced Surgical Block at AIIMS, these hermetically sealed sliding doors maintain strict positive sterile air pressure differentials between operating suites and outer corridors. Featuring heavy-duty perimeter neoprene gaskets, track-drop airtight seals, and whisper-quiet brushless DC automation, the units eliminate cross-contamination during emergency surgeries.",
+    "specifications": [
+      "Door Leaf Core: High-density CFC-free polyurethane core (48 kg/m³)",
+      "Facing Material: SS304 1.2mm grade stainless steel with matte satin hairline finish",
+      "Airtight Rating: EN 12207 Class 4 hermetic airtight certification",
+      "Automation Drive: 100W Brushless DC motor with intelligent micro-controller",
+      "Safety Sensors: Dual through-beam optical safety photocells and anti-pinch radar",
+      "Operation Controls: Touchless contactless optical radar and foot-kick sensors"
+    ],
+    "order": 1,
+    "active": true
+  },
+  {
+    "id": "apollo-radiation-shielding-doors",
+    "slug": "apollo-radiation-shielding-doors",
+    "title": "Apollo Specialty Hospital Lead-Lined Radiation Barrier Doors",
+    "category": "Radiation Shielding Doors",
+    "client": "Apollo Multi-Specialty Hospital",
+    "location": "Faridabad & NCR, India",
+    "year": "2024",
+    "scope": "Fabrication of 2.0mm to 3.0mm lead-equivalent radiation protection hinged and sliding doors for CT Scan, Cath Lab, and Linear Accelerator suites.",
+    "image": "/assets/images/Hospital door/leaned.png",
+    "gallery": [
+      "/assets/images/Hospital door/leaned.png",
+      "/assets/images/Hospital door/HPL Hinge Lead Door.png",
+      "/assets/images/Hospital door/SS304 Lead Single Leaf Hinged Door.png"
+    ],
+    "description": "Equipped with continuous 99.9% pure unpierced lead sheet cores, these radiation shielding doors provide certified radiation containment for high-energy diagnostic radiology departments. Frames are engineered with full lead lining overlap to eliminate any direct radiation leakage around jambs and hinges, fully compliant with AERB (Atomic Energy Regulatory Board) safety standards.",
+    "specifications": [
+      "Radiation Barrier: 2.0mm / 3.0mm Pb lead core shielding",
+      "Hinges: Heavy-duty SS304 ball-bearing hinges rated for 250kg leaf load",
+      "Vision Panel: Radiation-shielded lead glass with equivalent lead protection",
+      "Compliance: AERB and international diagnostic radiology containment norms",
+      "Acoustic & Dust Seal: Integrated drop-down automatic acoustic bottom seals"
+    ],
+    "order": 2,
+    "active": true
+  },
+  {
+    "id": "max-healthcare-ss304-ot-doors",
+    "slug": "max-healthcare-ss304-ot-doors",
+    "title": "Max Super Speciality Hospital SS304 Cleanroom Hinged Doors",
+    "category": "Hospital & OT Doors",
+    "client": "Max Super Speciality Healthcare",
+    "location": "Gurugram, Haryana",
+    "year": "2025",
+    "scope": "Supply and commissioning of 28 double-leaf and single-leaf SS304 hinged cleanroom doors across surgical theatres, recovery bays, and sterile corridors.",
+    "image": "/assets/images/Hospital door/SS304 HOSPITAL HINGED DOOR.png",
+    "gallery": [
+      "/assets/images/Hospital door/SS304 HOSPITAL HINGED DOOR.png",
+      "/assets/images/Hospital door/SS304 Double Leaf Lead Hinged Door.png",
+      "/assets/images/Hospital door/SS304 Single Leaf Hinged Door.png"
+    ],
+    "description": "Engineered for high-frequency clinical traffic, these full stainless steel SS304 doors feature seamless flush construction that eliminates bacteria-harboring ledges. Double-glazed flush vision panels with integrated blinds provide observation clarity without disrupting sterility.",
+    "specifications": [
+      "Material: High grade non-magnetic SS304 satin finish sheets",
+      "Vision Glass: 6mm+6mm double-glazed flush mounted safety glass with desiccant",
+      "Hardware: Heavy-duty stainless steel lever handles and concealed door closers",
+      "Sanitization: 100% resistant to chlorine and hospital medical sanitizers",
+      "Door Frame: Wrap-around profile interlocking directly with modular OT wall panels"
+    ],
+    "order": 3,
+    "active": true
+  },
+  {
+    "id": "medanta-surgical-pendants-scrub-stations",
+    "slug": "medanta-surgical-pendants-scrub-stations",
+    "title": "Medanta The Medicity Surgical Pendants & Scrub Stations",
+    "category": "Surgical Pendants & Scrub Sinks",
+    "client": "Medanta The Medicity Hospital",
+    "location": "Gurugram, Haryana",
+    "year": "2025",
+    "scope": "Installation of 12 dual-arm articulated surgical and anesthesia ceiling pendants and 8 heavy-duty hands-free SS304 surgical scrub sink stations.",
+    "image": "/assets/images/Surgical Pendant/Double Arm Pendant.png",
+    "gallery": [
+      "/assets/images/Surgical Pendant/Double Arm Pendant.png",
+      "/assets/images/Surgical Scrub/Foot Operated Automatic Surgical Scrub Sink For Hospital.png",
+      "/assets/images/Surgical Scrub/stainless-steel-surgical-scrub-sink-station.png"
+    ],
+    "description": "Delivered complete ergonomic and sanitary infrastructure for Medanta's surgical wing. Ceiling-mounted double-arm pendants provide clutter-free medical gas management, high-voltage isolations, and 330-degree rotation. The hands-free SS304 surgical scrub stations feature infrared sensor faucets and foot controls ensuring zero touch contamination.",
+    "specifications": [
+      "Pendant Arms: Dual articulated 330° bearing arms with pneumatic friction brakes",
+      "Gas Terminal Units: Oxygen, Nitrous Oxide, Medical Air 4 Bar, Surgical Air 7 Bar, Vacuum",
+      "Scrub Station: 1.5mm heavy-gauge SS304 surgical grade steel with anti-splash bowl",
+      "Controls: Dual knee/foot switches and digital infrared automatic sensors",
+      "Water Temperature: Integrated thermostatic anti-scalding mixer"
+    ],
+    "order": 4,
+    "active": true
+  },
+  {
+    "id": "fortis-motorized-sliding-cleanroom-doors",
+    "slug": "fortis-motorized-sliding-cleanroom-doors",
+    "title": "Fortis Escorts Motorized Cleanroom Airlock System",
+    "category": "Motor Control Automation",
+    "client": "Fortis Escorts Heart Institute",
+    "location": "Okhla, New Delhi",
+    "year": "2025",
+    "scope": "Multi-door interlock automation with centralized Motor Control Panels (MCP) for cardiac catheterization and ICU transfer airlocks.",
+    "image": "/assets/images/services/motorservice.png",
+    "gallery": [
+      "/assets/images/services/motorservice.png",
+      "/assets/images/Autoslides/operation-theater-sliding-doors.png",
+      "/assets/images/Autoslides/automatic-hermetic-sliding-door.png"
+    ],
+    "description": "Engineered an intelligent cleanroom airlock interlock system driven by custom Venus Motor Control Panels (MCP). The automated motorized system guarantees that both entry and exit doors cannot be opened simultaneously, safeguarding sterile HVAC zones and preventing airborne particulate transfer.",
+    "specifications": [
+      "Controller: Microprocessor-based multi-door interlock PLC logic",
+      "Motor: High-torque brushless DC servo drive with soft start/stop profiling",
+      "Emergency Integration: Instant fire alarm relay release and manual freewheeling",
+      "Backup Power: Built-in 24V UPS battery system providing up to 200 uninterrupted cycles",
+      "Access Trigger: RFID badge scanners, touchless optical wave switches, and elbow push pads"
+    ],
+    "order": 5,
+    "active": true
+  },
+  {
+    "id": "manipal-hpl-hermetic-sliding-doors",
+    "slug": "manipal-hpl-hermetic-sliding-doors",
+    "title": "Manipal Hospital HPL Hermetically Sealed Sliding Doors",
+    "category": "Hermetic Sliding Doors",
+    "client": "Manipal Hospitals Network",
+    "location": "Dwarka, New Delhi",
+    "year": "2025",
+    "scope": "Manufacture of 14 antimicrobial High Pressure Laminate (HPL) hermetic sliding doors for Modular Organ Transplant OTs.",
+    "image": "/assets/images/Hospital door/HPL Hermatically Sealed Manual Sliding Lead Lined Door.png",
+    "gallery": [
+      "/assets/images/Hospital door/HPL Hermatically Sealed Manual Sliding Lead Lined Door.png",
+      "/assets/images/Autoslides/hermetically-sealed-sliding-door.png",
+      "/assets/images/services/hermetic.png"
+    ],
+    "description": "High Pressure Laminate (HPL) hermetically sealed sliding doors designed for chemical impact resistance and warm aesthetic appeal in high-traffic modular organ transplant suites. Resistant to vigorous chemical scrubdowns, with flush vision windows and silent automatic overhead track drives.",
+    "specifications": [
+      "Door Leaf: 4mm solid core compact antimicrobial HPL facing over aluminium frame",
+      "Airtight Seal: 4-sided silicone perimeter gasket with bottom drop mechanism",
+      "Sound Insulation: Up to 32 dB acoustic reduction",
+      "Operation: Synchronized dual-sensor automatic track and mechanical release handle",
+      "Vision Glass: Double-glazed flush sealed unit with argon gas insulation"
+    ],
+    "order": 6,
+    "active": true
+  }
+]

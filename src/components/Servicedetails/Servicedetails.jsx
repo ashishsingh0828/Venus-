@@ -100,8 +100,11 @@ export default function ServiceDetails() {
                 </svg>
               </div>
               <p className="sd-contact-label">Need help? Call here</p>
-              <a className="sd-contact-number" href="tel:+2085550112">
-                +208-555-0112
+              <a className="sd-contact-number" href="tel:+919810730153">
+                +91 98107 30153
+              </a>
+              <a className="sd-contact-number" href="tel:+919582516661" style={{ fontSize: '15px', marginTop: '4px' }}>
+                +91 95825 16661
               </a>
             </div>
           </aside>

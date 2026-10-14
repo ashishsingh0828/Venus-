@@ -120,6 +120,19 @@
   margin-bottom: 24px;
 }
 
+.footer-brand-logo {
+  max-height: 52px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.phone-numbers-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 .brand-logo-icon {
   color: var(--primary, #e63946);
 }

@@ -36,13 +36,13 @@ export default function Footer() {
           <div className="footer-four-columns">
             <div className="footer-col brand-col">
               <div className="brand-header">
-                <div className="brand-logo-icon">
-                  <ShieldCheck size={32} />
-                </div>
-                <div className="brand-titles">
-                  <h2>VENUS</h2>
-                  <span>Hospital Door Solutions</span>
-                </div>
+                <Link to="/" className="brand-logo-link">
+                  <img
+                    src="/assets/images/venuslogo.webp"
+                    alt="Venus Hospital Door Solutions"
+                    className="footer-brand-logo"
+                  />
+                </Link>
               </div>
               <p className="brand-paragraph">
                 Venus Hospital Door Solutions engineers high-performance hermetic,
@@ -87,11 +87,14 @@ export default function Footer() {
               <ul className="contact-details">
                 <li>
                   <Phone size={18} className="info-icon" />
-                  <a href="tel:+919810730153">+91 98107 30153</a>
+                  <div className="phone-numbers-group">
+                    <a href="tel:+919810730153">+91 98107 30153</a>
+                    <a href="tel:+919582516661">+91 95825 16661</a>
+                  </div>
                 </li>
                 <li>
                   <Mail size={18} className="info-icon" />
-                  <a href="mailto:venushospitaldoorsolutions@gmail.com">Venushospitaldoorsolutions@gmail.com</a>
+                  <a href="mailto:venushospitaldoorsolutions@gmail.com">venushospitaldoorsolutions@gmail.com</a>
                 </li>
                 <li>
                   <MapPin size={18} className="info-icon" />

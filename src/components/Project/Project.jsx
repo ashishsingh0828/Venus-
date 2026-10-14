@@ -1,4 +1,5 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, FreeMode } from "swiper/modules";
 import { ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
@@ -177,14 +178,48 @@ const PROJECTS = [
 ];
 
 export default function ProjectsSection() {
+  const [projectList, setProjectList] = useState(PROJECTS);
   const [activeCategory, setActiveCategory] = useState("All Projects");
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
+  useEffect(() => {
+    let isMounted = true;
+    fetch("/api/projects")
+      .then((res) => res.json())
+      .then((data) => {
+        if (isMounted && data.success && Array.isArray(data.data) && data.data.length > 0) {
+          // Combine dynamic projects at the top, followed by any additional items
+          const apiProjects = data.data.map((p) => ({
+            id: p.id,
+            slug: p.slug || p.id,
+            title: p.title,
+            category: p.category || "Hospital & OT Doors",
+            image: p.image || "/assets/images/project/OT.png",
+          }));
+          setProjectList(apiProjects);
+        }
+      })
+      .catch(() => {
+        // Graceful fallback to static list
+      });
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const categories = useMemo(() => {
+    const cats = new Set(["All Projects"]);
+    projectList.forEach((p) => {
+      if (p.category) cats.add(p.category);
+    });
+    return Array.from(cats);
+  }, [projectList]);
+
   const filtered = useMemo(() => {
-    if (activeCategory === "All Projects") return PROJECTS;
-    return PROJECTS.filter((p) => p.category === activeCategory);
-  }, [activeCategory]);
+    if (activeCategory === "All Projects") return projectList;
+    return projectList.filter((p) => p.category === activeCategory);
+  }, [activeCategory, projectList]);
 
   return (
     <section className="projects-section">
@@ -198,7 +233,7 @@ export default function ProjectsSection() {
           </div>
 
           <nav className="projects-section__filters" aria-label="Filter projects by category">
-            {CATEGORIES.map((cat) => (
+            {categories.map((cat) => (
               <button
                 key={cat}
                 type="button"
@@ -236,13 +271,13 @@ export default function ProjectsSection() {
           >
             {filtered.map((project, i) => (
               <SwiperSlide key={project.id}>
-                <a
-                  href="#"
+                <Link
+                  to={`/project/${project.slug || project.id}`}
                   className="project-card"
                   style={{ animationDelay: `${i * 60}ms` }}
                 >
                   <div className="project-card__image">
-                    <img src={project.image} alt="" loading="lazy" />
+                    <img src={project.image} alt={project.title} loading="lazy" />
                   </div>
                   <span className="project-card__go" aria-hidden="true">
                     <ArrowUpRight size={16} strokeWidth={2.25} />
@@ -251,7 +286,7 @@ export default function ProjectsSection() {
                     <p className="project-card__category">{project.category}</p>
                     <h3 className="project-card__title">{project.title}</h3>
                   </div>
-                </a>
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>

@@ -4,7 +4,7 @@ import "./Video.css";
 
 export default function VideoHero({
   eyebrow = "Get More Update",
-  title = "Need Assistance With Contemporary Tiles & Toilet Come Along With Us",
+  title = "Need Certified Cleanroom & Hermetic OT Door Solutions? Connect With Us",
   ctaLabel = "Join With Us",
   ctaHref = "/contact",
   backgroundImage = "/assets/images/breaadcrumb.png",

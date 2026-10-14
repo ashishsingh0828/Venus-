@@ -117,8 +117,8 @@ export default function AboutHome() {
                 </div>
                 <div className="call-text">
                   <span className="label">Call For Inquiries</span>
-                  <a href="tel:+919876543210" className="number">
-                    +91 98765 43210
+                  <a href="tel:+919810730153" className="number">
+                    +91 98107 30153
                   </a>
                 </div>
               </div>

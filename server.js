@@ -31,6 +31,7 @@ const distDir = path.join(__dirname, 'dist');
 });
 
 const SERVICES_FILE = path.join(dataDir, 'services.json');
+const PROJECTS_FILE = path.join(dataDir, 'projects.json');
 const CONTACTS_FILE = path.join(dataDir, 'contacts.json');
 const ADMIN_FILE = path.join(dataDir, 'admin.json');
 
@@ -310,6 +311,36 @@ app.get('/api/services/:id', (req, res) => {
   } catch (error) {
     console.error('Get service error:', error);
     return res.status(500).json({ success: false, message: 'Failed to fetch service.' });
+  }
+});
+
+// 3. Dynamic Projects (Public API)
+app.get('/api/projects', (req, res) => {
+  try {
+    const projects = readJson(PROJECTS_FILE, []);
+    const activeProjects = projects
+      .filter((p) => p.active !== false)
+      .sort((a, b) => (Number(a.order) || 99) - (Number(b.order) || 99));
+
+    return res.json({ success: true, count: activeProjects.length, data: activeProjects });
+  } catch (error) {
+    console.error('Get projects error:', error);
+    return res.status(500).json({ success: false, message: 'Failed to fetch projects.' });
+  }
+});
+
+app.get('/api/projects/:id', (req, res) => {
+  try {
+    const { id } = req.params;
+    const projects = readJson(PROJECTS_FILE, []);
+    const project = projects.find((p) => p.id === id || p.slug === id);
+    if (!project) {
+      return res.status(404).json({ success: false, message: 'Project not found.' });
+    }
+    return res.json({ success: true, data: project });
+  } catch (error) {
+    console.error('Get project error:', error);
+    return res.status(500).json({ success: false, message: 'Failed to fetch project.' });
   }
 });
 
@@ -659,6 +690,167 @@ app.delete('/api/admin/services/:id', authenticateAdmin, (req, res) => {
   }
 });
 
+// -------------------------------------------------------------
+// ADMIN PROJECTS CRUD ROUTES
+// -------------------------------------------------------------
+
+// Get All Projects (Admin view)
+app.get('/api/admin/projects', authenticateAdmin, (req, res) => {
+  try {
+    const projects = readJson(PROJECTS_FILE, []);
+    return res.json({ success: true, data: projects });
+  } catch (error) {
+    console.error('Admin get projects error:', error);
+    return res.status(500).json({ success: false, message: 'Failed to fetch projects.' });
+  }
+});
+
+function parseStringList(val) {
+  if (Array.isArray(val)) return val.map((s) => String(s).trim()).filter(Boolean);
+  if (typeof val === 'string') {
+    return val.split('\n').map((s) => s.trim()).filter(Boolean);
+  }
+  return [];
+}
+
+// Create New Project
+app.post('/api/admin/projects', authenticateAdmin, (req, res) => {
+  try {
+    const {
+      title,
+      slug,
+      category,
+      client,
+      location,
+      year,
+      image,
+      gallery,
+      description,
+      scope,
+      specifications,
+      order,
+      active,
+    } = req.body;
+
+    if (!title || !description) {
+      return res.status(400).json({ success: false, message: 'Title and description are required.' });
+    }
+
+    const projects = readJson(PROJECTS_FILE, []);
+
+    const generatedSlug = slug
+      ? slug.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-')
+      : title.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
+
+    const newId = generatedSlug || 'project-' + Date.now();
+
+    const newProject = {
+      id: newId,
+      title: title.trim(),
+      slug: generatedSlug,
+      category: (category || 'Hospital & OT Doors').trim(),
+      client: (client || '').trim(),
+      location: (location || 'India').trim(),
+      year: (year || new Date().getFullYear().toString()).trim(),
+      image: image || '/assets/images/project/OT.png',
+      gallery: parseStringList(gallery).length > 0 ? parseStringList(gallery) : [image || '/assets/images/project/OT.png'],
+      description: description.trim(),
+      scope: (scope || '').trim(),
+      specifications: parseStringList(specifications),
+      order: Number(order) || projects.length + 1,
+      active: active !== false,
+      createdAt: new Date().toISOString(),
+    };
+
+    projects.push(newProject);
+    writeJson(PROJECTS_FILE, projects);
+
+    return res.status(201).json({ success: true, message: 'Project created successfully!', data: newProject });
+  } catch (error) {
+    console.error('Create project error:', error);
+    return res.status(500).json({ success: false, message: 'Failed to create project.' });
+  }
+});
+
+// Update Existing Project
+app.put('/api/admin/projects/:id', authenticateAdmin, (req, res) => {
+  try {
+    const { id } = req.params;
+    const {
+      title,
+      slug,
+      category,
+      client,
+      location,
+      year,
+      image,
+      gallery,
+      description,
+      scope,
+      specifications,
+      order,
+      active,
+    } = req.body;
+
+    const projects = readJson(PROJECTS_FILE, []);
+    const index = projects.findIndex((p) => p.id === id);
+
+    if (index === -1) {
+      return res.status(404).json({ success: false, message: 'Project not found.' });
+    }
+
+    const current = projects[index];
+
+    const updatedGallery = gallery !== undefined ? parseStringList(gallery) : current.gallery;
+    const updatedSpecs = specifications !== undefined ? parseStringList(specifications) : current.specifications;
+
+    projects[index] = {
+      ...current,
+      title: title !== undefined ? title.trim() : current.title,
+      slug: slug !== undefined ? slug.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-') : current.slug,
+      category: category !== undefined ? category.trim() : current.category,
+      client: client !== undefined ? client.trim() : current.client,
+      location: location !== undefined ? location.trim() : current.location,
+      year: year !== undefined ? year.trim() : current.year,
+      image: image !== undefined ? image : current.image,
+      gallery: updatedGallery && updatedGallery.length > 0 ? updatedGallery : current.gallery,
+      description: description !== undefined ? description.trim() : current.description,
+      scope: scope !== undefined ? scope.trim() : current.scope,
+      specifications: updatedSpecs !== undefined ? updatedSpecs : current.specifications,
+      order: order !== undefined ? Number(order) : current.order,
+      active: active !== undefined ? Boolean(active) : current.active,
+      updatedAt: new Date().toISOString(),
+    };
+
+    writeJson(PROJECTS_FILE, projects);
+
+    return res.json({ success: true, message: 'Project updated successfully!', data: projects[index] });
+  } catch (error) {
+    console.error('Update project error:', error);
+    return res.status(500).json({ success: false, message: 'Failed to update project.' });
+  }
+});
+
+// Delete Project
+app.delete('/api/admin/projects/:id', authenticateAdmin, (req, res) => {
+  try {
+    const { id } = req.params;
+    let projects = readJson(PROJECTS_FILE, []);
+    const initialLen = projects.length;
+    projects = projects.filter((p) => p.id !== id);
+
+    if (projects.length === initialLen) {
+      return res.status(404).json({ success: false, message: 'Project not found.' });
+    }
+
+    writeJson(PROJECTS_FILE, projects);
+    return res.json({ success: true, message: 'Project deleted successfully.' });
+  } catch (error) {
+    console.error('Delete project error:', error);
+    return res.status(500).json({ success: false, message: 'Failed to delete project.' });
+  }
+});
+
 // Image Upload Endpoint
 app.post('/api/admin/upload', authenticateAdmin, upload.single('image'), (req, res) => {
   try {
@@ -764,8 +956,6 @@ const server = app.listen(PORT, () => {
   console.log(`=================================================`);
   console.log(` Venus Backend Server running on port ${PORT}`);
   console.log(` Health/Services API: http://localhost:${PORT}/api/services`);
-  console.log(` Default Admin Email: admin@venushospitaldoors.com`);
-  console.log(` Default Admin Password: Admin@Venus2026`);
   console.log(`=================================================`);
 });
 

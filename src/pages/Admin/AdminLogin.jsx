@@ -49,7 +49,7 @@ export default function AdminLogin() {
             <ShieldCheck size={36} color="#c98b2c" />
           </div>
           <h2>Venus Admin Portal</h2>
-          <p>Sign in to manage dynamic services &amp; inquiries</p>
+          <p>Sign in to manage dynamic services, projects &amp; inquiries</p>
         </div>
 
         {error && <div className="admin-alert admin-alert-danger">{error}</div>}
@@ -62,7 +62,7 @@ export default function AdminLogin() {
               <input
                 id="username"
                 type="text"
-                placeholder="admin or admin@venushospitaldoors.com"
+                placeholder="Enter username or email"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
@@ -111,16 +111,6 @@ export default function AdminLogin() {
             )}
           </button>
         </form>
-
-        <div className="admin-default-hint">
-          <p>
-            <strong>Default Credentials:</strong>
-            <br />
-            Username: <code>admin</code>
-            <br />
-            Password: <code>Admin@Venus2026</code>
-          </p>
-        </div>
 
         <div className="admin-auth-footer">
           <Link to="/" className="admin-link-secondary">

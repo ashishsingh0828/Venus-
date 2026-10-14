@@ -120,9 +120,14 @@ export default function ContactInfo() {
               <PhoneCall size={28} />
             </div>
             <h3 className="card-title">
-              <a href="tel:+919810730153" style={{ color: 'inherit', textDecoration: 'none' }}>
-                +91 98107 30153
-              </a>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', fontSize: '1.05rem' }}>
+                <a href="tel:+919810730153" style={{ color: 'inherit', textDecoration: 'none' }}>
+                  +91 98107 30153
+                </a>
+                <a href="tel:+919582516661" style={{ color: 'inherit', textDecoration: 'none' }}>
+                  +91 95825 16661
+                </a>
+              </div>
             </h3>
             <p className="card-desc">
               Direct technical assistance &amp; commercial quotations.

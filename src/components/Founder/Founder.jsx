@@ -49,21 +49,21 @@ const STATS = [
 const FOUNDERS = [
   {
     id: 1,
+    name: "Neeraj Sharma",
+    role: "Managing Director",
+    bio: "Neeraj oversees manufacturing excellence, mechanical engineering, and quality assurance in Faridabad, supervising the fabrication of hermetic seals, radiation barriers, and automated hospital door systems.",
+    image:
+       "/assets/images/Profile/first.png",
+    links: { linkedin: "#", twitter: "#", mail: "mailto:support@venushospitaldoors.com" },
+  },
+  {
+    id: 2,
     name: "Poonam",
-    role: "CEO & Managing Director",
+    role: "Managing Director",
     bio: "Poonam spearheads corporate strategy, regulatory compliance, and business development at Venus Hospital Door Solutions, ensuring every product aligns with international healthcare standards and customer requirements.",
     image:
       "/assets/images/Profile/second.png",
     links: { linkedin: "#", twitter: "#", mail: "mailto:info@venushospitaldoors.com" },
-  },
-  {
-    id: 2,
-    name: "Parveen Solanki",
-    role: "Head of Technical Operations & Manufacturing",
-    bio: "Parveen oversees factory production, mechanical engineering, and quality assurance in Faridabad, supervising the fabrication of hermetic seals, radiation barriers, and automated hospital door systems.",
-    image:
-       "/assets/images/Profile/first.png",
-    links: { linkedin: "#", twitter: "#", mail: "mailto:support@venushospitaldoors.com" },
   },
 ];
 
