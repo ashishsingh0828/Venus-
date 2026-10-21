@@ -2,13 +2,11 @@
    No font-family is set, so text inherits your site's font. */
 .pdfd,
 .pdfm-overlay {
-  --red: #d7141a;
-  --red-dark: #a80e13;
-  --red-soft: #fdecec;
-  --black: #151515;
-  --grey: #5f5f5f;
-  --line: #e6e6e6;
-  --paper: #f5f5f5;
+  --red: #e0151b;
+  --red-dark: #b00f14;
+  --black: #111111;
+  --ink: #1b1b1b;
+  --grey: #5d5d5d;
   --white: #ffffff;
 }
 
@@ -17,39 +15,52 @@
   box-sizing: border-box;
 }
 
-/* ---------- Section ---------- */
+/* ---------- Section: black stage with a red glow ---------- */
 .pdfd {
+  position: relative;
   width: 100%;
-  padding: clamp(40px, 7vw, 88px) clamp(16px, 4vw, 32px);
+  overflow: hidden;
+  padding: clamp(48px, 8vw, 104px) clamp(16px, 4vw, 32px);
+  color: var(--white);
   background:
-    linear-gradient(180deg, var(--paper) 0%, var(--white) 100%);
+    radial-gradient(60% 55% at 12% 0%, rgba(224, 21, 27, 0.38) 0%, transparent 70%),
+    radial-gradient(45% 45% at 100% 100%, rgba(224, 21, 27, 0.22) 0%, transparent 70%),
+    var(--black);
 }
 
 .pdfd-inner {
+  position: relative;
   max-width: 1160px;
   margin: 0 auto;
 }
 
 .pdfd-head {
   max-width: 640px;
-  margin-bottom: clamp(24px, 5vw, 48px);
-  padding-left: 18px;
-  border-left: 6px solid var(--red);
+  margin-bottom: clamp(28px, 5vw, 56px);
 }
 
 .pdfd-heading {
   margin: 0;
-  color: var(--black);
-  font-size: clamp(1.9rem, 4.5vw, 2.9rem);
-  line-height: 1.05;
-  letter-spacing: -0.01em;
+  font-size: clamp(2.1rem, 5.5vw, 3.6rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.pdfd-heading::after {
+  content: "";
+  display: block;
+  width: 88px;
+  height: 6px;
+  margin-top: 18px;
+  background: var(--red);
+  border-radius: 3px;
 }
 
 .pdfd-sub {
-  margin: 12px 0 0;
-  color: var(--grey);
-  font-size: 1.05rem;
-  line-height: 1.55;
+  margin: 18px 0 0;
+  color: #c9c9c9;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 /* ---------- Cards ---------- */
@@ -59,7 +70,7 @@
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-  gap: clamp(16px, 2.5vw, 30px);
+  gap: clamp(18px, 2.8vw, 32px);
 }
 
 .pdfd-item {
@@ -71,171 +82,119 @@
   flex-direction: column;
   width: 100%;
   overflow: hidden;
+  color: var(--ink);
   background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  transition: transform 0.25s ease, box-shadow 0.25s ease,
-    border-color 0.25s ease;
+  border-radius: 16px;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .pdfd-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--red);
-  box-shadow: 0 18px 36px rgba(215, 20, 26, 0.16);
+  transform: translateY(-8px);
+  box-shadow: 0 28px 56px rgba(224, 21, 27, 0.4);
 }
 
-.pdfd-top {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 20px 22px;
-  color: var(--white);
-  background: var(--black);
-  border-bottom: 4px solid var(--red);
-}
-
-/* faint ring behind the header, like a certificate seal */
-.pdfd-top::after {
-  content: "";
-  position: absolute;
-  right: -34px;
-  top: -34px;
-  width: 120px;
-  height: 120px;
-  border: 14px solid rgba(255, 255, 255, 0.06);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.pdfd-badge {
+/* The coloured stage that holds the certificate sheet */
+.pdfd-stage {
   display: grid;
   place-items: center;
-  flex-shrink: 0;
-  width: 54px;
-  height: 54px;
-  color: var(--white);
-  background: var(--red);
-  border-radius: 50%;
-  box-shadow: 0 0 0 5px rgba(215, 20, 26, 0.28);
+  padding: 34px 20px 0;
+  height: 220px;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0 2px, transparent 2px 14px),
+    linear-gradient(160deg, var(--red) 0%, var(--red-dark) 100%);
 }
 
-.pdfd-category {
-  font-size: 1.05rem;
-  font-weight: 600;
+.pdfd-sheet {
+  position: relative;
+  align-self: end;
+  width: min(210px, 70%);
+  height: 100%;
+  padding: 22px 20px;
+  background: var(--white);
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 -4px 22px rgba(0, 0, 0, 0.3);
+  transform: rotate(-4deg) translateY(10px);
+  transform-origin: bottom center;
+  transition: transform 0.35s ease;
+}
+
+.pdfd-card:hover .pdfd-sheet {
+  transform: rotate(0deg) translateY(0);
+}
+
+.pdfd-sheet-bar {
+  display: block;
+  width: 56%;
+  height: 10px;
+  margin: 0 auto 18px;
+  background: var(--black);
+  border-radius: 3px;
+}
+
+.pdfd-sheet-line {
+  display: block;
+  height: 6px;
+  margin: 0 auto 10px;
+  background: #e3e3e3;
+  border-radius: 3px;
+}
+
+.pdfd-sheet-line--l { width: 90%; }
+.pdfd-sheet-line--m { width: 72%; }
+.pdfd-sheet-line--s { width: 48%; }
+
+.pdfd-sheet-seal {
+  position: absolute;
+  right: 16px;
+  bottom: 22px;
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  color: var(--white);
+  background: var(--black);
+  border: 3px solid var(--red);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--white), 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+.pdfd-sheet-seal svg {
+  width: 30px;
+  height: 30px;
 }
 
 .pdfd-main {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   flex: 1;
-  padding: 22px 22px 8px;
+  padding: 26px 24px 8px;
 }
 
 .pdfd-card-title {
   margin: 0;
-  color: var(--black);
-  font-size: 1.4rem;
+  font-size: 1.45rem;
   line-height: 1.2;
 }
 
 .pdfd-card-sub {
-  margin: 4px 0 0;
+  margin: 6px 0 0;
   color: var(--red);
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 0.98rem;
+  font-weight: 700;
 }
 
 .pdfd-card-text {
   margin: 12px 0 0;
   color: var(--grey);
-  font-size: 0.97rem;
+  font-size: 1rem;
   line-height: 1.55;
-}
-
-.pdfd-facts {
-  width: 100%;
-  margin: 18px 0 16px;
-  padding: 0;
-}
-
-.pdfd-facts div {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 9px 0;
-  border-top: 1px dashed #d4d4d4;
-  font-size: 0.9rem;
-}
-
-.pdfd-facts div:last-child {
-  border-bottom: 1px dashed #d4d4d4;
-}
-
-.pdfd-facts dt {
-  margin: 0;
-  color: var(--grey);
-  white-space: nowrap;
-}
-
-.pdfd-facts dd {
-  margin: 0;
-  color: var(--black);
-  font-weight: 600;
-  text-align: right;
-  overflow-wrap: anywhere;
-}
-
-/* ---------- Status badge ---------- */
-.pdfd-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-.pdfd-status::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: currentColor;
-}
-
-.pdfd-status--valid {
-  color: var(--white);
-  background: var(--black);
-}
-
-.pdfd-status--valid::before {
-  background: #3ddc84;
-}
-
-.pdfd-status--expired {
-  color: var(--red-dark);
-  background: var(--red-soft);
-  border: 1px solid var(--red);
-}
-
-.pdfd-status--open {
-  color: var(--black);
-  background: #ececec;
-}
-
-.pdfd-status--open::before {
-  background: var(--grey);
 }
 
 /* ---------- Card buttons ---------- */
 .pdfd-actions {
   display: flex;
   gap: 10px;
-  padding: 16px 22px 22px;
+  padding: 20px 24px 24px;
 }
 
 .pdfd-view {
@@ -244,36 +203,40 @@
   justify-content: center;
   gap: 10px;
   flex: 1;
-  min-height: 48px;
+  min-height: 50px;
   padding: 0 18px;
   color: var(--white);
   background: var(--red);
   border: 0;
-  border-radius: 6px;
+  border-radius: 10px;
   cursor: pointer;
   font: inherit;
   font-weight: 700;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .pdfd-view:hover {
   background: var(--red-dark);
 }
 
+.pdfd-view:active {
+  transform: scale(0.98);
+}
+
 .pdfd-save {
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
   color: var(--white);
   background: var(--black);
-  border-radius: 6px;
+  border-radius: 10px;
   transition: background 0.2s ease;
 }
 
 .pdfd-save:hover {
-  background: #3a3a3a;
+  background: #3b3b3b;
 }
 
 .pdfd-view:focus-visible,
@@ -291,8 +254,8 @@
   align-items: center;
   justify-content: center;
   padding: clamp(0px, 2.5vw, 28px);
-  background: rgba(8, 8, 8, 0.85);
-  backdrop-filter: blur(3px);
+  background: rgba(8, 8, 8, 0.86);
+  backdrop-filter: blur(4px);
   animation: pdfm-fade 0.2s ease;
 }
 
@@ -305,8 +268,8 @@
   overflow: hidden;
   background: var(--white);
   border-top: 5px solid var(--red);
-  border-radius: 10px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+  border-radius: 14px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
   animation: pdfm-rise 0.25s ease;
 }
 
@@ -348,10 +311,10 @@
   align-items: center;
   gap: 8px;
   flex-shrink: 0;
-  min-height: 44px;
-  padding: 0 16px;
+  min-height: 46px;
+  padding: 0 18px;
   color: var(--white);
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   font: inherit;
   font-weight: 700;
@@ -407,7 +370,7 @@
   margin: 0;
   padding: 6px 12px;
   color: var(--white);
-  background: rgba(21, 21, 21, 0.88);
+  background: rgba(17, 17, 17, 0.9);
   font-size: 0.8rem;
   text-align: center;
   transform: translateY(100%);
@@ -430,6 +393,10 @@
 
 /* ---------- Responsive ---------- */
 @media (max-width: 640px) {
+  .pdfd-stage {
+    height: 190px;
+  }
+
   /* Full screen viewer on phones */
   .pdfm-overlay {
     padding: 0;
@@ -450,7 +417,7 @@
   .pdfm-download,
   .pdfm-close {
     justify-content: center;
-    width: 46px;
+    width: 48px;
     padding: 0;
   }
 
@@ -480,6 +447,7 @@
   }
 
   .pdfd-card,
+  .pdfd-sheet,
   .pdfd-view,
   .pdfd-save {
     transition: none;

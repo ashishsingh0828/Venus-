@@ -5,72 +5,38 @@ import "./PdfDocuments.css";
 const COMPANY = "Venus Hospital Door Solutions";
 
 /*
-  PDF files live in:  public/assets/images/pdf/
-  Do NOT write "public" in the URL. Everything inside "public" is served
-  from the site root, so the URL starts with /assets/images/pdf/
-  File names are case sensitive on most servers (IEC.pdf is not iec.pdf).
-
-  expiry: use "YYYY-MM-DD", or null when the certificate has no expiry date.
-  The Valid / Expired badge is worked out automatically from today's date.
+  PDFs live in:  public/assets/images/pdf/
+  Do NOT write "public" in the URL. Files inside "public" are served from
+  the site root, so the URL starts with /assets/images/pdf/
+  File names are case sensitive (IEC.pdf is not iec.pdf).
 */
 const DOCUMENTS = [
   {
     id: "iso-9001",
     icon: "quality",
-    category: "Quality",
     title: "ISO 9001:2015",
     subtitle: "Quality Management System",
     description: "Manufacturing of operation theatre sliding doors.",
-    number: "QMS/029821/0922",
-    issuer: "Quality Control Certification",
-    issued: "2022-09-02",
-    expiry: "2025-09-01",
     file: "/assets/images/pdf/hospital.pdf",
   },
   {
     id: "compliance",
     icon: "compliance",
-    category: "Compliance",
     title: "Certificate of Compliance",
     subtitle: "Medical Device Directive 93/42/EEC",
     description:
       "Hospital hinged and sliding doors, surgical pendant and surgical scrub sink.",
-    number: "CE/D69E/0424",
-    issuer: "Quality Control Certification",
-    issued: "2024-04-25",
-    expiry: "2027-04-24",
     file: "/assets/images/pdf/final.pdf",
   },
   {
     id: "iec",
     icon: "trade",
-    category: "Trade",
     title: "Importer-Exporter Code",
     subtitle: "Government of India, DGFT",
     description: "Registered code that allows us to import and export goods.",
-    number: "GYLPP4794R",
-    issuer: "Directorate General of Foreign Trade",
-    issued: "2024-04-23",
-    expiry: null,
     file: "/assets/images/pdf/IEC.pdf",
   },
 ];
-
-const fmt = (iso) =>
-  new Intl.DateTimeFormat("en-AU", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-    timeZone: "UTC",
-  }).format(new Date(iso));
-
-function getStatus(expiry) {
-  if (!expiry) return { kind: "open", label: "No expiry date" };
-  const expired = new Date(`${expiry}T23:59:59Z`) < new Date();
-  return expired
-    ? { kind: "expired", label: `Expired ${fmt(expiry)}` }
-    : { kind: "valid", label: `Valid until ${fmt(expiry)}` };
-}
 
 /* ---------- Icons ---------- */
 const stroke = {
@@ -81,9 +47,9 @@ const stroke = {
   strokeLinejoin: "round",
 };
 
-function CardIcon({ name }) {
+function SealIcon({ name }) {
   return (
-    <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" {...stroke}>
+    <svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true" {...stroke}>
       {name === "quality" && (
         <>
           <path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3z" />
@@ -119,7 +85,7 @@ function CloseIcon() {
 
 function DownloadIcon() {
   return (
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" {...stroke} strokeWidth="2.2">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" {...stroke} strokeWidth="2.2">
       <path d="M12 4v11M7 11l5 5 5-5M5 20h14" />
     </svg>
   );
@@ -127,7 +93,7 @@ function DownloadIcon() {
 
 function EyeIcon() {
   return (
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" {...stroke} strokeWidth="2.2">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" {...stroke} strokeWidth="2.2">
       <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" />
       <circle cx="12" cy="12" r="3" />
     </svg>
@@ -167,7 +133,7 @@ function PdfModal({ doc, onClose }) {
         <header className="pdfm-bar">
           <div className="pdfm-heading">
             <h3 className="pdfm-title">{doc.title}</h3>
-            <p className="pdfm-meta">{doc.number}</p>
+            <p className="pdfm-meta">{doc.subtitle}</p>
           </div>
 
           <a className="pdfm-download" href={doc.file} download>
@@ -217,70 +183,60 @@ export default function PdfDocuments() {
       <div className="pdfd-inner">
         <div className="pdfd-head">
           <h2 className="pdfd-heading" id="pdfd-heading">
-            Certifications
+            Certified for quality
           </h2>
           <p className="pdfd-sub">
-            Quality, compliance and trade registrations held by {COMPANY}.
-            Open any certificate to read the original document.
+            The certificates behind {COMPANY}. Open any one to read the
+            original document.
           </p>
         </div>
 
         <ul className="pdfd-grid">
-          {DOCUMENTS.map((doc) => {
-            const status = getStatus(doc.expiry);
-            return (
-              <li key={doc.id} className="pdfd-item">
-                <article className="pdfd-card">
-                  <div className="pdfd-top">
-                    <span className="pdfd-badge">
-                      <CardIcon name={doc.icon} />
-                    </span>
-                    <span className="pdfd-category">{doc.category}</span>
-                  </div>
-
-                  <div className="pdfd-main">
-                    <h3 className="pdfd-card-title">{doc.title}</h3>
-                    <p className="pdfd-card-sub">{doc.subtitle}</p>
-                    <p className="pdfd-card-text">{doc.description}</p>
-
-                    <dl className="pdfd-facts">
-                      <div>
-                        <dt>Number</dt>
-                        <dd>{doc.number}</dd>
-                      </div>
-                      <div>
-                        <dt>Issued by</dt>
-                        <dd>{doc.issuer}</dd>
-                      </div>
-                      <div>
-                        <dt>Issued</dt>
-                        <dd>{fmt(doc.issued)}</dd>
-                      </div>
-                    </dl>
-
-                    <span className={`pdfd-status pdfd-status--${status.kind}`}>
-                      {status.label}
+          {DOCUMENTS.map((doc) => (
+            <li key={doc.id} className="pdfd-item">
+              <article className="pdfd-card">
+                {/* Certificate-style preview */}
+                <div className="pdfd-stage">
+                  <div className="pdfd-sheet" aria-hidden="true">
+                    <span className="pdfd-sheet-bar" />
+                    <span className="pdfd-sheet-line pdfd-sheet-line--l" />
+                    <span className="pdfd-sheet-line pdfd-sheet-line--m" />
+                    <span className="pdfd-sheet-line pdfd-sheet-line--s" />
+                    <span className="pdfd-sheet-line pdfd-sheet-line--m" />
+                    <span className="pdfd-sheet-seal">
+                      <SealIcon name={doc.icon} />
                     </span>
                   </div>
+                </div>
 
-                  <div className="pdfd-actions">
-                    <button
-                      type="button"
-                      className="pdfd-view"
-                      onClick={() => setActive(doc)}
-                      aria-haspopup="dialog"
-                    >
-                      <EyeIcon />
-                      View certificate
-                    </button>
-                    <a className="pdfd-save" href={doc.file} download aria-label={`Download ${doc.title}`}>
-                      <DownloadIcon />
-                    </a>
-                  </div>
-                </article>
-              </li>
-            );
-          })}
+                <div className="pdfd-main">
+                  <h3 className="pdfd-card-title">{doc.title}</h3>
+                  <p className="pdfd-card-sub">{doc.subtitle}</p>
+                  <p className="pdfd-card-text">{doc.description}</p>
+                </div>
+
+                <div className="pdfd-actions">
+                  <button
+                    type="button"
+                    className="pdfd-view"
+                    onClick={() => setActive(doc)}
+                    aria-haspopup="dialog"
+                  >
+                    <EyeIcon />
+                    View certificate
+                  </button>
+                  <a
+                    className="pdfd-save"
+                    href={doc.file}
+                    download
+                    aria-label={`Download ${doc.title}`}
+                  >
+                    <DownloadIcon />
+                  </a>
+                </div>
+              </article>
+            </li>
+          ))}
         </ul>
       </div>
 
