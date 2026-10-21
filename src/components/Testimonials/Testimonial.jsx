@@ -10,11 +10,10 @@ import "./Testimonial.css";
 const TESTIMONIALS = [
   {
     id: 1,
-    name: "Dr. Arvind Mehta",
-    role: "OT In-Charge & Surgeon",
+    name: "Medicareplus Healthcare Pvt Ltd",
     rating: 5,
     avatar:
-      "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=160&h=160&fit=crop&crop=faces",
+      "https://api.dicebear.com/7.x/bottts/svg?seed=medicareplus",
     image:
       "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=900&h=1000&fit=crop",
     quote:
@@ -22,27 +21,47 @@ const TESTIMONIALS = [
   },
   {
     id: 2,
-    name: "Rajesh Kulkarni",
-    role: "Hospital Infrastructure Consultant",
+    name: "Kashi Medical System Pvt Ltd",
     rating: 5,
     avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=160&h=160&fit=crop&crop=faces",
+      "https://api.dicebear.com/7.x/bottts/svg?seed=kashi",
     image:
-      "/assets/images/services/hermetic.png",
+      "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=900&h=1000&fit=crop",
     quote:
-      "Their custom SS304 lead-lined radiation doors for our radiology wing exceeded inspection standards. Excellent fabrication quality, timely delivery from their Faridabad plant, and precise on-site subframe alignment.",
+      "Their motorized lead-lined radiation shielding doors and ICU partition systems met all AERB compliance checks seamlessly. Excellent fabrication precision and robust build quality.",
   },
   {
     id: 3,
-    name: "Vikram Singhania",
-    role: "Biomedical Project Director",
+    name: "Param Medical Pvt Ltd",
     rating: 5,
     avatar:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=160&h=160&fit=crop&crop=faces",
+      "https://api.dicebear.com/7.x/bottts/svg?seed=param",
     image:
-      "/assets/images/services/motorservice.png",
+      "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=900&h=1000&fit=crop",
     quote:
-      "From dual-arm surgical ceiling pendants to automatic foot-operated scrub sinks and motor control panels, Venus delivered durable healthcare equipment that easily withstands demanding 24/7 hospital duty cycles.",
+      "From dual-arm surgical ceiling pendants to automatic sensor scrub sinks, Venus delivered top-tier healthcare equipment that withstands demanding 24/7 continuous clinical duty cycles.",
+  },
+  {
+    id: 4,
+    name: "AIIMS, Safdarjung",
+    rating: 5,
+    avatar:
+      "https://api.dicebear.com/7.x/bottts/svg?seed=aiims",
+    image:
+      "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=900&h=1000&fit=crop",
+    quote:
+      "Handling high-volume public hospital traffic demands sheer durability. The automated hermetic OT doors and crash-resistant barrier frames have functioned flawlessly without downtime.",
+  },
+  {
+    id: 5,
+    name: "Tata Hospital, Ranchi",
+    rating: 5,
+    avatar:
+      "https://api.dicebear.com/7.x/bottts/svg?seed=tata",
+    image:
+      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=900&h=1000&fit=crop",
+    quote:
+      "Venus provided end-to-end support for our oncology and cleanroom setups. Their flush glazing, antimicrobial coatings, and touchless access sensors meet the highest international infection control protocols.",
   },
 ];
 
@@ -118,7 +137,6 @@ export default function Testimonial() {
                     />
                     <div className="testimonial-card__person">
                       <p className="testimonial-card__name">{t.name}</p>
-                      <p className="testimonial-card__role">{t.role}</p>
                     </div>
                     <Quote
                       className="testimonial-card__quote-icon"

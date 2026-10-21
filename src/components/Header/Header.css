@@ -429,6 +429,7 @@
 .site-header__drawer.is-open {
   transform: translateX(0);
   visibility: visible;
+  height:500px;
 }
 
 @media (min-width: 960px) {

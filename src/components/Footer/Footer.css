@@ -357,7 +357,10 @@
   .newsletter-form input,
   .newsletter-form button {
     border-radius: 2px;
-    width: 100%;
+    width: 97%;
     height: 44px;
   }
+  .footer-inner-container {
+  padding: 0 14px;
+}
 }

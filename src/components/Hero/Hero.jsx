@@ -12,7 +12,7 @@ export const SLIDES = [
     description:
       "Airtight sealing systems engineered for operation theatres, isolation wards, and sterile cleanroom environments.",
     primaryCta: { label: "Request a quote", href: "/contact" },
-    secondaryCta: { label: "Explore doors", href: "/products" },
+    secondaryCta: { label: "Explore doors", href: "/contact" },
   },
   {
   id: "surgical-pendants",
@@ -23,7 +23,7 @@ export const SLIDES = [
   description:
     "Ceiling-mounted supply units engineered to streamline gas, power, and data routing for clutter-free, sterile operating environments.",
   primaryCta: { label: "Request configuration", href: "/contact" },
-  secondaryCta: { label: "Explore pendant range", href: "/products" },
+  secondaryCta: { label: "Explore pendant range", href: "/contact" },
 },
   {
     id: "modular-theatres",
@@ -34,7 +34,7 @@ export const SLIDES = [
     description:
       "Complete medical utility units, scrub sinks, and motor control panels built to international healthcare benchmarks.",
     primaryCta: { label: "Talk to an engineer", href: "/contact" },
-    secondaryCta: { label: "View catalog", href: "/products" },
+    secondaryCta: { label: "View catalog", href: "/contact" },
   },
 ];
 

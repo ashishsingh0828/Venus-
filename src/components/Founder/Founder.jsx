@@ -58,9 +58,9 @@ const FOUNDERS = [
   },
   {
     id: 2,
-    name: "Poonam",
+    name: "Parveen Solanki",
     role: "Managing Director",
-    bio: "Poonam spearheads corporate strategy, regulatory compliance, and business development at Venus Hospital Door Solutions, ensuring every product aligns with international healthcare standards and customer requirements.",
+    bio: "Parveen Solanki spearheads corporate strategy, regulatory compliance, and business development at Venus Hospital Door Solutions, ensuring every product aligns with international healthcare standards and customer requirements.",
     image:
       "/assets/images/Profile/second.png",
     links: { linkedin: "#", twitter: "#", mail: "mailto:info@venushospitaldoors.com" },
